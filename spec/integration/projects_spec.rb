@@ -20,7 +20,21 @@ module Trajectory
   end
 end
 
-describe 'Wrapper' do
+module Trajectory
+  describe Project do
+    let(:project) { Project.new(name: 'foo') }
+
+    it 'can be initialized with named parameters' do
+      project.name.should == 'foo'
+    end
+
+    it 'is the same project when names are the same' do
+      project.should == Project.new(name: 'foo')
+    end
+  end
+end
+
+describe 'Client' do
   it 'is able to retrieve all projects of the user' do
     projects = Trajectory::Client.new.projects
 
