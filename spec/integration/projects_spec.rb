@@ -6,13 +6,25 @@ require 'json'
 require 'ap'
 
 module Trajectory
+  class MissingAttributeError < RuntimeError
+    def initialize(object, attribute)
+      @object = object
+      @attribute = attribute.to_sym
+    end
+
+    def to_s
+      "Attribute #{@attribute} of #{@object.inspect} is nil."
+    end
+  end
+
   class Project
     include Virtus
 
+    attribute :id, Integer, default: lambda { |project, attribute| raise MissingAttributeError.new(project, :id) }
     attribute :name, String
 
     def ==(other)
-      name == other.name
+      id == other.id
     end
   end
 
@@ -20,7 +32,7 @@ module Trajectory
     def projects
       response = HTTParty.get("http://www.apptrajectory.com/api/#{api_key}/accounts/#{account_keyword}/projects.json", {:headers => {'Content-Type' => 'application/json'}})
       JSON.parse(response.body).map do |project|
-        Project.new(name: project["name"])
+        Project.new(id: project['id'], name: project['name'])
       end
     end
 
@@ -36,14 +48,20 @@ end
 
 module Trajectory
   describe Project do
-    let(:project) { Project.new(name: 'foo') }
+    let(:project) { Project.new(id: 42, name: 'foo') }
 
     it 'can be initialized with named parameters' do
       project.name.should == 'foo'
     end
 
-    it 'is the same project when names are the same' do
-      project.should == Project.new(name: 'foo')
+    it 'requires an id attribute' do
+      expect do
+        Project.new.id
+      end.to raise_error(MissingAttributeError)
+    end
+
+    it 'is the same project when ids are the same' do
+      project.should == Project.new(id: 42, name: 'bar')
     end
   end
 end
@@ -53,7 +71,7 @@ describe 'Client' do
     VCR.use_cassette('projects') do
       projects = Trajectory::Client.new.projects
 
-      project_1 = Trajectory::Project.new(name: 'test-project')
+      project_1 = Trajectory::Project.new(id: 15504817, name: 'test-project')
 
       projects.should == [project_1]
     end
