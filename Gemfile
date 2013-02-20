@@ -1,6 +1,9 @@
 source 'https://rubygems.org'
 
-gem 'virtus'
+group :development, :test do
+  gem 'awesome_print'
+  gem 'rspec'
+end
 
 # Specify your gem's dependencies in trajectory.gemspec
 gemspec

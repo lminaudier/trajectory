@@ -1,6 +1,9 @@
 require 'spec_helper'
 
 require 'virtus'
+require 'httparty'
+require 'json'
+require 'ap'
 
 module Trajectory
   class Project
@@ -15,7 +18,18 @@ module Trajectory
 
   class Client
     def projects
-      [Project.new(name: 'test-project-1'), Project.new(name: 'test-project-2')]
+      response = HTTParty.get("http://www.apptrajectory.com/api/#{api_key}/accounts/#{account_keyword}/projects.json", {:headers => {'Content-Type' => 'application/json'}})
+      JSON.parse(response.body).map do |project|
+        Project.new(name: project["name"])
+      end
+    end
+
+    def api_key
+      ENV['TRAJECTORY_API_KEY']
+    end
+
+    def account_keyword
+      ENV['TRAJECTORY_ACCOUNT_KEYWORD']
     end
   end
 end
@@ -38,9 +52,8 @@ describe 'Client' do
   it 'is able to retrieve all projects of the user' do
     projects = Trajectory::Client.new.projects
 
-    project_1 = Trajectory::Project.new(name: 'test-project-1')
-    project_2 = Trajectory::Project.new(name: 'test-project-2')
+    project_1 = Trajectory::Project.new(name: 'test-project')
 
-    projects.should == [project_1, project_2]
+    projects.should == [project_1]
   end
 end
