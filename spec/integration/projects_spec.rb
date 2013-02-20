@@ -50,10 +50,12 @@ end
 
 describe 'Client' do
   it 'is able to retrieve all projects of the user' do
-    projects = Trajectory::Client.new.projects
+    VCR.use_cassette('projects') do
+      projects = Trajectory::Client.new.projects
 
-    project_1 = Trajectory::Project.new(name: 'test-project')
+      project_1 = Trajectory::Project.new(name: 'test-project')
 
-    projects.should == [project_1]
+      projects.should == [project_1]
+    end
   end
 end

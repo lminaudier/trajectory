@@ -5,5 +5,10 @@ group :development, :test do
   gem 'rspec'
 end
 
+group :test do
+  gem 'vcr'
+  gem 'webmock'
+end
+
 # Specify your gem's dependencies in trajectory.gemspec
 gemspec
