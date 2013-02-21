@@ -7,8 +7,7 @@ describe Trajectory::Client do
 
       project_1 = Trajectory::Project.new(id: 15504817)
 
-      projects.should be_kind_of(Trajectory::Projects)
-      projects.should == (Trajectory::Projects.new << project_1)
+      projects.should == Trajectory::Projects.new(project_1)
     end
   end
 end

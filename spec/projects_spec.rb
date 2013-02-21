@@ -2,18 +2,12 @@ require 'spec_helper'
 
 module Trajectory
   describe Projects do
-    it 'is kind of Array' do
-      projects = Projects.new
-      projects.should be_kind_of(Array)
-    end
-
     it 'can find a project by keyword' do
-      projects = Projects.new
       project = Fabricate(:project, keyword: 'a_keyword')
-      projects << Fabricate(:project, keyword: 'some_identifier')
-      projects << Fabricate(:project, keyword: 'another_identifier')
-      projects << project
-      projects << Fabricate(:project, keyword: 'the_last_identifier')
+      projects =  Projects.new(Fabricate(:project, keyword: 'some_identifier'),
+                  Fabricate(:project, keyword: 'another_identifier'),
+                  project,
+                  Fabricate(:project, keyword: 'the_last_identifier'))
 
       projects.find_by_keyword('a_keyword').should == project
     end

@@ -1,15 +1,23 @@
+require 'delegate'
+
 module Trajectory
-  class Projects < Array
+  class Projects < SimpleDelegator
+    alias :projects :__getobj__
+
+    def initialize(*projects)
+      super(projects)
+    end
+
     def find_by_keyword(keyword)
-      detect { |project| project.keyword == keyword } || false
+      projects.detect { |project| project.keyword == keyword } || false
     end
 
     def archived
-      select { |project| project.archived? }
+      projects.select { |project| project.archived? }
     end
 
     def active
-      select { |project| !project.archived? }
+      projects.select { |project| !project.archived? }
     end
   end
 end
