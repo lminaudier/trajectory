@@ -28,7 +28,7 @@ constructor.
 
 	require 'trajectory'
 
-	client = Trajectory.new
+	client = Trajectory::Client.new
 
 #### Projects
 
@@ -52,7 +52,7 @@ When you have retrieved a project, you can access project attributes
 	project.updated_at
 	project.completed_iterations_count
 	project.completed_stories_count
-	
+
 	project.total_points
 	project.estimated_end_date
 	project.stories.unestimated
@@ -124,7 +124,7 @@ Each individual story expose this attributes :
 To retrieve all iterations of a project use :
 
 	project.iterations
-	
+
 Or a subset using
 
 	project.iterations.past
@@ -151,7 +151,7 @@ Each iteration has the following attributes
 	iteration.estimated_points
 	iteration.comments_count
 	iteration.accepted_stories_count
-	
+
 	iteration.stories.completed
 	iteration.stories.started
 	iteration.stories.not_yet_started
@@ -162,7 +162,7 @@ To retrieve all ideas of a project use :
 
 	project.ideas
 
-Or a subset using	
+Or a subset using
 
 	project.ideas.completed
 	project.ideas.started
@@ -180,7 +180,7 @@ Each individual idea has the following attributes
 	idea.stories
 	idea.user
 	idea.subscribed_user_ids
-	
+
 	idea.percent_complete
 
 #### Uploads
