@@ -20,5 +20,11 @@ module Trajectory
     def stories
       @stories ||= DataStore.stories_for_project(self)
     end
+
+    def total_points
+      stories.inject(0) do |accumulator, story|
+        accumulator += story.points
+      end
+    end
   end
 end

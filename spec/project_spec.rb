@@ -26,6 +26,15 @@ module Trajectory
         end
       end
     end
+
+    it 'can sum the points of all its stories' do
+      stories = Stories.new(Fabricate(:story, :points => 2),
+                            Fabricate(:story, :points => 10),
+                            Fabricate(:story, :points => 8))
+      DataStore.stub(:stories_for_project).and_return(stories)
+
+      Project.new.total_points.should == 20
+    end
   end
 end
 
