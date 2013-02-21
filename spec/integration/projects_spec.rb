@@ -48,9 +48,11 @@ module Trajectory
   class Client
     def projects
       response = HTTParty.get("http://www.apptrajectory.com/api/#{api_key}/accounts/#{account_keyword}/projects.json", {:headers => {'Content-Type' => 'application/json'}})
+      projects = Projects.new
       JSON.parse(response.body).map do |project|
-        Project.new(project.symbolize_keys!)
+        projects << Project.new(project.symbolize_keys!)
       end
+      projects
     end
 
     def api_key
@@ -60,6 +62,9 @@ module Trajectory
     def account_keyword
       ENV['TRAJECTORY_ACCOUNT_KEYWORD']
     end
+  end
+
+  class Projects < Array
   end
 end
 
@@ -92,14 +97,24 @@ module Trajectory
   end
 end
 
-describe 'Client' do
+module Trajectory
+  describe Projects do
+    it 'is kind of Array' do
+      projects = Projects.new
+      projects.should be_kind_of(Array)
+    end
+  end
+end
+
+describe Trajectory::Client do
   it 'is able to retrieve all projects of the user' do
     VCR.use_cassette('projects') do
       projects = Trajectory::Client.new.projects
 
       project_1 = Trajectory::Project.new(id: 15504817)
 
-      projects.should == [project_1]
+      projects.should be_kind_of(Trajectory::Projects)
+      projects.should == (Trajectory::Projects.new << project_1)
     end
   end
 end
