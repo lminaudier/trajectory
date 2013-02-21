@@ -16,5 +16,11 @@ module Trajectory
     def ==(other)
       id == other.id
     end
+
+    def stories
+      @stories ||= Api.stories_for_project(self).inject(Stories.new) do |memo, story|
+        memo << Story.new(story.symbolize_keys!)
+      end
+    end
   end
 end

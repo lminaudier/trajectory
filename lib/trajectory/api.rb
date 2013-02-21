@@ -12,6 +12,14 @@ class Api
     JSON.parse get_json("/projects.json")
   end
 
+  def self.stories_for_project(keyword)
+    new.stories_for_project(keyword)
+  end
+
+  def stories_for_project(project)
+    JSON.parse(get_json("/projects/#{project.keyword}/stories.json"))['stories']
+  end
+
   private
   def get_json(url)
     get_body(url, options)

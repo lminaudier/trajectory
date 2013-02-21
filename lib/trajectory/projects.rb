@@ -21,5 +21,3 @@ module Trajectory
     end
   end
 end
-
-

@@ -10,4 +10,14 @@ describe Trajectory::Client do
       projects.should == Trajectory::Projects.new(project_1)
     end
   end
+
+  it 'is able to retrive all stories of a given project' do
+    VCR.use_cassette('projects_and_stories') do
+      project = Trajectory::Client.new.projects.first
+
+      story_1 = Trajectory::Story.new(id: 15623694)
+      story_2 = Trajectory::Story.new(id: 15623695)
+      project.stories.should == Trajectory::Stories.new(story_1, story_2)
+    end
+  end
 end
