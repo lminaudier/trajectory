@@ -6,6 +6,7 @@ require 'trajectory/core_ext/hash'
 require 'trajectory/missing_attribute_error'
 require 'trajectory/project'
 require 'trajectory/projects'
+require 'trajectory/api'
 require 'trajectory/client'
 require "trajectory/version"
 
