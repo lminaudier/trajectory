@@ -8,6 +8,7 @@ end
 group :test do
   gem 'vcr'
   gem 'webmock'
+  gem 'fabrication'
 end
 
 # Specify your gem's dependencies in trajectory.gemspec
