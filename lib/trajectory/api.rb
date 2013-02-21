@@ -9,14 +9,18 @@ class Api
   end
 
   def projects
-    JSON.parse get_body("/projects.json", options)
+    JSON.parse get_json("/projects.json")
+  end
+
+  private
+  def get_json(url)
+    get_body(url, options)
   end
 
   def options
     {:headers => {'Content-Type' => 'application/json'}}
   end
 
-  private
   def get_body(*args)
     self.class.get(*args).body
   end
