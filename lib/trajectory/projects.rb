@@ -8,8 +8,12 @@ module Trajectory
       super(projects)
     end
 
+    def find_by_id(id)
+      projects.find { |project| project.id == id } || false
+    end
+
     def find_by_keyword(keyword)
-      projects.detect { |project| project.keyword == keyword } || false
+      projects.find { |project| project.keyword == keyword } || false
     end
 
     def archived

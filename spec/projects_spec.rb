@@ -2,6 +2,24 @@ require 'spec_helper'
 
 module Trajectory
   describe Projects do
+    it 'can find a project by id' do
+      project = Fabricate(:project, id: 1234)
+      projects = Projects.new(Fabricate(:project, id: 1),
+                 Fabricate(:project, id: 2),
+                 project,
+                 Fabricate(:project, id: 3))
+
+      projects.find_by_id(1234).should == project
+    end
+
+    it "returns false when it can't find a project by id" do
+      projects = Projects.new(Fabricate(:project, id: 1),
+                 Fabricate(:project, id: 2),
+                 Fabricate(:project, id: 3))
+
+      projects.find_by_id(1234).should == false
+    end
+
     it 'can find a project by keyword' do
       project = Fabricate(:project, keyword: 'a_keyword')
       projects = Projects.new(Fabricate(:project, keyword: 'some_identifier'),

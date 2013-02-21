@@ -26,5 +26,11 @@ module Trajectory
         end
       end
     end
+
+    it 'delegates project fetching to data store' do
+      DataStore.should_receive(:find_project_by_id)
+
+      Story.new.project
+    end
   end
 end

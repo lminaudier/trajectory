@@ -20,4 +20,13 @@ describe Trajectory::Client do
       project.stories.should == Trajectory::Stories.new(story_1, story_2)
     end
   end
+
+  it 'creates association from story to project' do
+    VCR.use_cassette('projects_and_stories') do
+      project = Trajectory::Client.new.projects.first
+      story = project.stories.first
+
+      story.project.should == project
+    end
+  end
 end

@@ -19,9 +19,14 @@ module Trajectory
     attribute :user_name, String
     attribute :comments_count, Integer
     attribute :state, String
+    attribute :project_id, Integer
 
     def ==(other)
       id == other.id
+    end
+
+    def project
+      DataStore.find_project_by_id(project_id)
     end
   end
 end
