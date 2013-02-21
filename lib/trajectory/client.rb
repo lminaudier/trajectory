@@ -1,9 +1,7 @@
 module Trajectory
   class Client
     def projects
-      Api.projects.inject(Projects.new) do |memo, project|
-        memo << Project.new(project.symbolize_keys!)
-      end
+      DataStore.projects
     end
   end
 end

@@ -18,9 +18,7 @@ module Trajectory
     end
 
     def stories
-      @stories ||= Api.stories_for_project(self).inject(Stories.new) do |memo, story|
-        memo << Story.new(story.symbolize_keys!)
-      end
+      @stories ||= DataStore.stories_for_project(self)
     end
   end
 end
