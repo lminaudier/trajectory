@@ -32,5 +32,9 @@ module Trajectory
     def started?
       state == :started
     end
+
+    def unstarted?
+      state == :unstarted
+    end
   end
 end

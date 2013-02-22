@@ -37,5 +37,10 @@ module Trajectory
       Story.new(state: :started).should be_started
       Story.new(state: :unstarted).should_not be_started
     end
+
+    it 'knows when it is unstarted' do
+      Story.new(state: :unstarted).should be_unstarted
+      Story.new(state: :started).should_not be_unstarted
+    end
   end
 end

@@ -11,5 +11,9 @@ module Trajectory
     def started
       stories.select(&:started?)
     end
+
+    def unstarted
+      stories.select(&:unstarted?)
+    end
   end
 end
