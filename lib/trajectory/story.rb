@@ -18,7 +18,7 @@ module Trajectory
     attribute :deleted, Boolean
     attribute :user_name, String
     attribute :comments_count, Integer
-    attribute :state, String
+    attribute :state, Symbol
     attribute :project_id, Integer
 
     def ==(other)
@@ -27,6 +27,10 @@ module Trajectory
 
     def project
       DataStore.find_project_by_id(project_id)
+    end
+
+    def started?
+      state == :started
     end
   end
 end

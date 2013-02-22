@@ -32,5 +32,10 @@ module Trajectory
 
       Story.new.project
     end
+
+    it 'knows when it is started' do
+      Story.new(state: :started).should be_started
+      Story.new(state: :unstarted).should_not be_started
+    end
   end
 end

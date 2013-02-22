@@ -7,5 +7,9 @@ module Trajectory
     def initialize(*args)
       super(args)
     end
+
+    def started
+      stories.select(&:started?)
+    end
   end
 end
