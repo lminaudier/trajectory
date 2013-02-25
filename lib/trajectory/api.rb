@@ -18,6 +18,7 @@ module Trajectory
     end
 
     def stories_for_project(project)
+      JSON.parse(get_json("/projects/#{project.keyword}/stories/completed.json"))['stories'] +
       JSON.parse(get_json("/projects/#{project.keyword}/stories.json"))['stories']
     end
 
