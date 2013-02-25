@@ -36,5 +36,9 @@ module Trajectory
     def unstarted?
       state == :unstarted
     end
+
+    def not_completed?
+      state != :accepted
+    end
   end
 end

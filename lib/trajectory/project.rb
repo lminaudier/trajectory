@@ -2,6 +2,8 @@ module Trajectory
   class Project
     include Virtus
 
+    NUMBER_OF_WORKING_DAYS_BY_WEEK = 5.0
+
     attribute :id, Integer, default: lambda { |project, attribute| raise MissingAttributeError.new(project, :id) }
     attribute :name, String
     attribute :archived, Boolean
@@ -25,6 +27,32 @@ module Trajectory
       stories.inject(0) do |accumulator, story|
         accumulator += story.points
       end
+    end
+
+    def estimated_end_date
+      Date.today + remaining_days
+    end
+
+    def remaining_days
+      (remaining_points / estimated_velocity_per_day).ceil
+    end
+
+    def remaining_points
+      stories.not_completed.inject(0) do |accumulator, story|
+        accumulator += story.points
+      end
+    end
+
+    def estimated_velocity_per_day
+      estimated_velocity / 7.0
+    end
+
+    def remaining_working_days
+      (remaining_points / estimated_velocity_per_working_day).ceil
+    end
+
+    def estimated_velocity_per_working_day
+      estimated_velocity / NUMBER_OF_WORKING_DAYS_BY_WEEK
     end
   end
 end

@@ -15,5 +15,9 @@ module Trajectory
     def unstarted
       stories.select(&:unstarted?)
     end
+
+    def not_completed
+      stories.select(&:not_completed?)
+    end
   end
 end

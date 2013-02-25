@@ -42,5 +42,12 @@ module Trajectory
       Story.new(state: :unstarted).should be_unstarted
       Story.new(state: :started).should_not be_unstarted
     end
+
+    it 'knows when a story is not completed' do
+      %w(started unstarted delivered rejected).each do |state|
+        Story.new(state: state).should be_not_completed
+      end
+      Story.new(state: :accepted).should_not be_not_completed
+    end
   end
 end
