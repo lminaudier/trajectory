@@ -18,5 +18,11 @@ module Trajectory
     def find_project_by_id(id)
       projects.find_by_id(id)
     end
+
+    def iterations_for_project(project)
+      Iterations.new(*Api.iterations_for_project(project).map do |attributes|
+        Iteration.new(attributes.symbolize_keys!)
+      end)
+    end
   end
 end

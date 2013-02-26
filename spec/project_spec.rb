@@ -107,5 +107,11 @@ module Trajectory
 
       Project.new.accepted_points.should == 19
     end
+
+    it 'delegates fetching of iterations of a project to the data store' do
+      DataStore.should_receive(:iterations_for_project).with(project)
+
+      project.iterations
+    end
   end
 end

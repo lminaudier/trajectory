@@ -10,6 +10,8 @@ require 'trajectory/story'
 require 'trajectory/stories'
 require 'trajectory/project'
 require 'trajectory/projects'
+require 'trajectory/iteration'
+require 'trajectory/iterations'
 
 require 'trajectory/api'
 require 'trajectory/data_store'

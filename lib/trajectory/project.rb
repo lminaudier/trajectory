@@ -23,6 +23,10 @@ module Trajectory
       @stories ||= DataStore.stories_for_project(self)
     end
 
+    def iterations
+      DataStore.iterations_for_project(self)
+    end
+
     def total_points
       stories.inject(0) do |accumulator, story|
         accumulator += story.points
@@ -34,7 +38,11 @@ module Trajectory
     end
 
     def remaining_days
-      (remaining_points / estimated_velocity_per_day).ceil
+      begin
+        (remaining_points / estimated_velocity_per_day).ceil
+      rescue FloatDomainError
+        'This project will never end'
+      end
     end
 
     def remaining_points
@@ -48,7 +56,11 @@ module Trajectory
     end
 
     def remaining_working_days
-      (remaining_points / estimated_velocity_per_working_day).ceil
+      begin
+        (remaining_points / estimated_velocity_per_working_day).ceil
+      rescue FloatDomainError
+        'This project will never end'
+      end
     end
 
     def estimated_velocity_per_working_day
