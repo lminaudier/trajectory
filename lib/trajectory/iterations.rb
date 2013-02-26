@@ -5,5 +5,9 @@ module Trajectory
     def initialize(*args)
       super(args)
     end
+
+    def current
+      detect(&:current?)
+    end
   end
 end
