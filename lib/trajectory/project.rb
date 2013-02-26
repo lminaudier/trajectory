@@ -24,7 +24,7 @@ module Trajectory
     end
 
     def iterations
-      DataStore.iterations_for_project(self)
+      @iterations ||= DataStore.iterations_for_project(self)
     end
 
     def total_points
