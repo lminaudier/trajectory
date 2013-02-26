@@ -89,5 +89,23 @@ module Trajectory
       Project.new(:estimated_velocity => 21).estimated_velocity_per_working_day.should == 21 / 5.0
       Project.new(:estimated_velocity => 7).estimated_velocity_per_working_day.should == 7 / 5.0
     end
+
+    it 'can estimate the percentage of completion' do
+      stories = Stories.new(Fabricate(:story, :points => 1, :state => :started),
+                            Fabricate(:story, :points => 10, :state => :unstarted),
+                            Fabricate(:story, :points => 9, :state => :accepted))
+      DataStore.stub(:stories_for_project).and_return(stories)
+
+      Project.new.percent_complete.should == 45.0
+    end
+
+    it 'can return the sum of completed stories points' do
+      stories = Stories.new(Fabricate(:story, :points => 1, :state => :started),
+                            Fabricate(:story, :points => 10, :state => :accepted),
+                            Fabricate(:story, :points => 9, :state => :accepted))
+      DataStore.stub(:stories_for_project).and_return(stories)
+
+      Project.new.accepted_points.should == 19
+    end
   end
 end

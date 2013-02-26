@@ -54,5 +54,13 @@ module Trajectory
     def estimated_velocity_per_working_day
       estimated_velocity / NUMBER_OF_WORKING_DAYS_BY_WEEK
     end
+
+    def percent_complete
+      (accepted_points.to_f / total_points * 100.0).round(1)
+    end
+
+    def accepted_points
+      total_points - remaining_points
+    end
   end
 end
