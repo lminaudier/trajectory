@@ -47,6 +47,14 @@ describe Trajectory::Client do
     end
   end
 
+  it 'creates association from iteration to project' do
+    VCR.use_cassette('projects_and_iterations') do
+      project = Trajectory::Client.new.projects.first
+      iteration = project.iterations.first
+      iteration.project.should == project
+    end
+  end
+
   it 'creates association from story to project' do
     VCR.use_cassette('projects_and_stories') do
       project = Trajectory::Client.new.projects.first

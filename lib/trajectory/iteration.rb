@@ -18,9 +18,14 @@ module Trajectory
     attribute :estimated_points, Integer
     attribute :comments_count, Integer
     attribute :accepted_stories_count, Integer
+    attribute :project_id, Integer
 
     def ==(other)
       id == other.id
+    end
+
+    def project
+      DataStore.find_project_by_id(project_id)
     end
   end
 end
