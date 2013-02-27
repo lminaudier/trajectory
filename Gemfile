@@ -9,6 +9,7 @@ group :test do
   gem 'vcr'
   gem 'webmock'
   gem 'fabrication'
+  gem 'simplecov', :require => false
 end
 
 # Specify your gem's dependencies in trajectory.gemspec
