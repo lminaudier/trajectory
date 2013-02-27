@@ -22,6 +22,8 @@ module Trajectory
     def iterations_for_project(project)
       Iterations.new(*Api.iterations_for_project(project).map do |attributes|
         attributes = attributes.symbolize_keys!.merge({project_id: project.id})
+        attributes[:current] = attributes[:current?]
+        attributes.delete(:current?)
         Iteration.new(attributes)
       end)
     end
