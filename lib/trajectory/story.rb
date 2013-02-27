@@ -20,6 +20,7 @@ module Trajectory
     attribute :comments_count, Integer
     attribute :state, Symbol
     attribute :project_id, Integer
+    attribute :iteration_id, Integer
 
     def ==(other)
       id == other.id
@@ -39,6 +40,10 @@ module Trajectory
 
     def not_completed?
       state != :accepted
+    end
+
+    def in_iteration?(iteration)
+      iteration_id == iteration.id
     end
   end
 end

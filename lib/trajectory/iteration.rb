@@ -25,7 +25,11 @@ module Trajectory
     end
 
     def project
-      DataStore.find_project_by_id(project_id)
+      @project ||= DataStore.find_project_by_id(project_id)
+    end
+
+    def stories
+      project.stories.in_iteration(self)
     end
   end
 end

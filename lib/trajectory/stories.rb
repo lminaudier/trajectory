@@ -19,5 +19,11 @@ module Trajectory
     def not_completed
       stories.select(&:not_completed?)
     end
+
+    def in_iteration(iteration)
+      stories.select do |story|
+        story.in_iteration?(iteration)
+      end
+    end
   end
 end
