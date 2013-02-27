@@ -46,5 +46,21 @@ module Trajectory
 
       stories.not_completed.should == Stories.new(story_1, story_2, story_3)
     end
+
+    it 'can filter stories of a given iteration' do
+      story_1 = Fabricate(:story, iteration_id: 12)
+      story_2 = Fabricate(:story, iteration_id: 12)
+      story_3 = Fabricate(:story, iteration_id: 12)
+      stories = Stories.new(Fabricate(:story),
+                            story_1,
+                            Fabricate(:story),
+                            Fabricate(:story),
+                            story_2,
+                            story_3,
+                            Fabricate(:story))
+
+      iteration = double(:id => 12)
+      stories.in_iteration(iteration).should == Stories.new(story_1, story_2, story_3)
+    end
   end
 end

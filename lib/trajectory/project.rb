@@ -4,6 +4,7 @@ module Trajectory
 
     NUMBER_OF_WORKING_DAYS_BY_WEEK = 5.0
 
+    attr_writer :stories
     attribute :id, Integer, default: lambda { |project, attribute| raise MissingAttributeError.new(project, :id) }
     attribute :name, String
     attribute :archived, Boolean
@@ -27,6 +28,10 @@ module Trajectory
       @iterations ||= DataStore.iterations_for_project(self)
     end
 
+    def stories_in_iteration(iteration)
+      stories.in_iteration(iteration)
+    end
+
     def total_points
       stories.inject(0) do |accumulator, story|
         accumulator += story.points
@@ -38,11 +43,8 @@ module Trajectory
     end
 
     def remaining_days
-      begin
-        (remaining_points / estimated_velocity_per_day).ceil
-      rescue FloatDomainError
-        'This project will never end'
-      end
+      raise VelocityEqualToZeroError.new(self) if estimated_velocity_per_day == 0
+      (remaining_points / estimated_velocity_per_day).ceil
     end
 
     def remaining_points
@@ -56,11 +58,8 @@ module Trajectory
     end
 
     def remaining_working_days
-      begin
-        (remaining_points / estimated_velocity_per_working_day).ceil
-      rescue FloatDomainError
-        'This project will never end'
-      end
+      raise VelocityEqualToZeroError.new(self) if estimated_velocity_per_working_day == 0
+      (remaining_points / estimated_velocity_per_working_day).ceil
     end
 
     def estimated_velocity_per_working_day

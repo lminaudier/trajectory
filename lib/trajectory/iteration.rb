@@ -2,6 +2,8 @@ module Trajectory
   class Iteration
     include Virtus
 
+    attr_writer :project
+
     attribute :id, Integer, default: lambda { |project, attribute| raise MissingAttributeError.new(project, :id) }
     attribute :percent_complete, Float
     attribute :started_stories_count, Integer
@@ -29,7 +31,7 @@ module Trajectory
     end
 
     def stories
-      project.stories.in_iteration(self)
+      project.stories_in_iteration(self)
     end
   end
 end

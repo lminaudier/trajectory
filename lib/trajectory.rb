@@ -5,6 +5,7 @@ require 'json'
 require 'trajectory/core_ext/hash'
 
 require 'trajectory/missing_attribute_error'
+require 'trajectory/velocity_equal_to_zero_error'
 
 require 'trajectory/story'
 require 'trajectory/stories'

@@ -49,5 +49,11 @@ module Trajectory
       end
       Story.new(state: :accepted).should_not be_not_completed
     end
+
+    it 'knows if it is included in an iteration' do
+      iteration = double(:id => 42)
+      Story.new(iteration_id: 42).should be_in_iteration(iteration)
+      Story.new(iteration_id: 51).should_not be_in_iteration(iteration)
+    end
   end
 end

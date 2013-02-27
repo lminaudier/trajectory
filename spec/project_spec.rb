@@ -113,5 +113,29 @@ module Trajectory
 
       project.iterations
     end
+
+    it 'can get stories of a given iteration' do
+      stories = double
+      iteration = double
+
+      project.stories = stories
+      stories.should_receive(:in_iteration).with(iteration)
+
+      project.stories_in_iteration(iteration)
+    end
+
+    context 'when estimated velocity is zero' do
+      it 'cannot estimate remaining days until the project end' do
+        expect do
+          Project.new(:estimated_velocity => 0).remaining_days
+        end.to raise_error(VelocityEqualToZeroError)
+      end
+
+      it 'cannot estimate remaining working days until the project end' do
+        expect do
+          Project.new(:estimated_velocity => 0).remaining_working_days
+        end.to raise_error(VelocityEqualToZeroError)
+      end
+    end
   end
 end
