@@ -33,16 +33,16 @@ module Trajectory
     end
 
     it 'can filter not completed stories' do
-      story_1 = double(:not_completed? => true)
-      story_2 = double(:not_completed? => true)
-      story_3 = double(:not_completed? => true)
-      stories = Stories.new(double(:not_completed? => false),
+      story_1 = double(:completed? => false)
+      story_2 = double(:completed? => false)
+      story_3 = double(:completed? => false)
+      stories = Stories.new(double(:completed? => true),
                             story_1,
-                            double(:not_completed? => false),
-                            double(:not_completed? => false),
+                            double(:completed? => true),
+                            double(:completed? => true),
                             story_2,
                             story_3,
-                            double(:not_completed? => false))
+                            double(:completed? => true))
 
       stories.not_completed.should == Stories.new(story_1, story_2, story_3)
     end

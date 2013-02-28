@@ -39,7 +39,11 @@ module Trajectory
     end
 
     def not_completed?
-      state != :accepted
+      !completed?
+    end
+
+    def completed?
+      state == :accepted
     end
 
     def in_iteration?(iteration)

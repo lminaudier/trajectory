@@ -37,18 +37,18 @@ module Trajectory
     end
 
     it 'can evaluate remaining points' do
-      stories = Stories.new(double(:story, :points => 2, :not_completed? => true),
-                            double(:story, :points => 10, :not_completed? => true),
-                            double(:story, :points => 8, :not_completed? => false))
+      stories = Stories.new(double(:story, :points => 2, :completed? => false),
+                            double(:story, :points => 10, :completed? => false),
+                            double(:story, :points => 8, :completed? => true))
       DataStore.stub(:stories_for_project).and_return(stories)
 
       Project.new.remaining_points.should == 12
     end
 
     it 'can evaluate the number of days to the end' do
-      stories = Stories.new(double(:story, :points => 2, :not_completed? => true),
-                            double(:story, :points => 10, :not_completed? => true),
-                            double(:story, :points => 8, :not_completed? => true))
+      stories = Stories.new(double(:story, :points => 2, :completed? => false),
+                            double(:story, :points => 10, :completed? => false),
+                            double(:story, :points => 8, :completed? => false))
       DataStore.stub(:stories_for_project).and_return(stories)
 
       project = Project.new(:estimated_velocity => 20)
@@ -57,9 +57,9 @@ module Trajectory
     end
 
     it 'can evaluate project end date' do
-      stories = Stories.new(double(:story, :points => 20, :not_completed? => true),
-                            double(:story, :points => 10, :not_completed? => true),
-                            double(:story, :points => 10, :not_completed? => true))
+      stories = Stories.new(double(:story, :points => 20, :completed? => false),
+                            double(:story, :points => 10, :completed? => false),
+                            double(:story, :points => 10, :completed? => false))
       DataStore.stub(:stories_for_project).and_return(stories)
 
       project = Project.new(:estimated_velocity => 20)
@@ -74,9 +74,9 @@ module Trajectory
     end
 
     it 'can count the number of remaining working days' do
-      stories = Stories.new(double(:story, :points => 2, :not_completed? => true),
-                            double(:story, :points => 10, :not_completed? => true),
-                            double(:story, :points => 8, :not_completed? => true))
+      stories = Stories.new(double(:story, :points => 2, :completed? => false),
+                            double(:story, :points => 10, :completed? => false),
+                            double(:story, :points => 8, :completed? => false))
       DataStore.stub(:stories_for_project).and_return(stories)
 
       project = Project.new(:estimated_velocity => 20)
@@ -91,18 +91,18 @@ module Trajectory
     end
 
     it 'can estimate the percentage of completion' do
-      stories = Stories.new(double(:story, :points => 1, :not_completed? => true),
-                            double(:story, :points => 10, :not_completed? => true),
-                            double(:story, :points => 9, :not_completed? => false))
+      stories = Stories.new(double(:story, :points => 1, :completed? => false),
+                            double(:story, :points => 10, :completed? => false),
+                            double(:story, :points => 9, :completed? => true))
       DataStore.stub(:stories_for_project).and_return(stories)
 
       Project.new.percent_complete.should == 45.0
     end
 
     it 'can return the sum of completed stories points' do
-      stories = Stories.new(double(:story, :points => 1, :not_completed? => true),
-                            double(:story, :points => 10, :not_completed? => false),
-                            double(:story, :points => 9, :not_completed? => false))
+      stories = Stories.new(double(:story, :points => 1, :completed? => false),
+                            double(:story, :points => 10, :completed? => true),
+                            double(:story, :points => 9, :completed? => true))
       DataStore.stub(:stories_for_project).and_return(stories)
 
       Project.new.accepted_points.should == 19

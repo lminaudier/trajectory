@@ -17,7 +17,7 @@ module Trajectory
     end
 
     def not_completed
-      stories.select(&:not_completed?)
+      stories.reject(&:completed?)
     end
 
     def in_iteration(iteration)

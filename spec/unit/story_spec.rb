@@ -46,8 +46,10 @@ module Trajectory
     it 'knows when a story is not completed' do
       %w(started unstarted delivered rejected).each do |state|
         Story.new(state: state).should be_not_completed
+        Story.new(state: state).should_not be_completed
       end
       Story.new(state: :accepted).should_not be_not_completed
+      Story.new(state: :accepted).should be_completed
     end
 
     it 'knows if it is included in an iteration' do
