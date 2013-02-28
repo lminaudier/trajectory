@@ -207,16 +207,16 @@ Each individual upload has the following attributes
 
 You can retrieve all the user of the trajectory account with
 
-  client.users
+	client.users
 
 and have access to the following attributes
 
-  client.email
-  client.id
-  client.name
-  client.updated_at
-  client.created_at
-  client.gravatar_url
+	client.email
+	client.id
+	client.name
+	client.updated_at
+	client.created_at
+	client.gravatar_url
 
 ### Comments
 
@@ -225,31 +225,31 @@ access to comment with `.comments`
 
 This `Enumerable` give access to elements with the following attributes
 
-  comment.id
-  comment.meta
-  comment.type
-  comment.user_id
-  comment.created_at
-  comment.updated_at
-  comment.updateable_id
-  comment.updateable_type
-  comment.formatted_meta
-  comment.editable
+	comment.id
+	comment.meta
+	comment.type
+	comment.user_id
+	comment.created_at
+	comment.updated_at
+	comment.updateable_id
+	comment.updateable_type
+	comment.formatted_meta
+	comment.editable
 
 ### Updates
 
 You can access project update since a given date with
 
-  project.updates(since: DateTime.new(1970, 1, 1))
+	project.updates(since: DateTime.new(1970, 1, 1))
 
 From `Updates` collection you can access updated stories and iterations with
 
-  update.stories
-  update.iterations
+	update.stories
+	update.iterations
 
 And for each update you can access the following attributes
 
-  TbD
+	TbD
 
 ## Contributing
 
