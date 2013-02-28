@@ -18,6 +18,18 @@ module Trajectory
       iteration.should == Iteration.new(id: 42)
     end
 
+    it 'knows when the iteration is a past one' do
+      Iteration.new(:complete => true).past?.should == true
+      Iteration.new(:complete => false).past?.should == false
+    end
+
+    it 'knows when the iteration is a future one' do
+      Iteration.new(:complete => true, :current => true).future?.should == false
+      Iteration.new(:complete => true, :current => false).future?.should == false
+      Iteration.new(:complete => false, :current => true).future?.should == false
+      Iteration.new(:complete => false, :current => false).future?.should == true
+    end
+
     context 'it has attributes accessors' do
       %w(percent_complete started_stories_count created_at estimated_velocity delivered_stories_count updated_at unstarted_stories_count starts_on current stories_count id complete accepted_points estimated_points comments_count accepted_stories_count).each do |attribute|
         it "'#{attribute}' accessor" do

@@ -22,6 +22,12 @@ module Trajectory
     attribute :accepted_stories_count, Integer
     attribute :project_id, Integer
 
+    alias :past? :complete?
+
+    def future?
+      !current? && !complete?
+    end
+
     def ==(other)
       id == other.id
     end
