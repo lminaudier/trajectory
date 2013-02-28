@@ -28,27 +28,27 @@ module Trajectory
     end
 
     it 'can sum the points of all its stories' do
-      stories = Stories.new(Fabricate(:story, :points => 2),
-                            Fabricate(:story, :points => 10),
-                            Fabricate(:story, :points => 8))
+      stories = Stories.new(double(:story, :points => 2),
+                            double(:story, :points => 10),
+                            double(:story, :points => 8))
       DataStore.stub(:stories_for_project).and_return(stories)
 
       Project.new.total_points.should == 20
     end
 
     it 'can evaluate remaining points' do
-      stories = Stories.new(Fabricate(:story, :points => 2, :state => :started),
-                            Fabricate(:story, :points => 10, :state => :unstarted),
-                            Fabricate(:story, :points => 8, :state => :accepted))
+      stories = Stories.new(double(:story, :points => 2, :completed? => false),
+                            double(:story, :points => 10, :completed? => false),
+                            double(:story, :points => 8, :completed? => true))
       DataStore.stub(:stories_for_project).and_return(stories)
 
       Project.new.remaining_points.should == 12
     end
 
     it 'can evaluate the number of days to the end' do
-      stories = Stories.new(Fabricate(:story, :points => 2, :state => :started),
-                            Fabricate(:story, :points => 10, :state => :unstarted),
-                            Fabricate(:story, :points => 8, :state => :unstarted))
+      stories = Stories.new(double(:story, :points => 2, :completed? => false),
+                            double(:story, :points => 10, :completed? => false),
+                            double(:story, :points => 8, :completed? => false))
       DataStore.stub(:stories_for_project).and_return(stories)
 
       project = Project.new(:estimated_velocity => 20)
@@ -57,9 +57,9 @@ module Trajectory
     end
 
     it 'can evaluate project end date' do
-      stories = Stories.new(Fabricate(:story, :points => 20, :state => :unstarted),
-                            Fabricate(:story, :points => 10, :state => :unstarted),
-                            Fabricate(:story, :points => 10, :state => :unstarted))
+      stories = Stories.new(double(:story, :points => 20, :completed? => false),
+                            double(:story, :points => 10, :completed? => false),
+                            double(:story, :points => 10, :completed? => false))
       DataStore.stub(:stories_for_project).and_return(stories)
 
       project = Project.new(:estimated_velocity => 20)
@@ -74,9 +74,9 @@ module Trajectory
     end
 
     it 'can count the number of remaining working days' do
-      stories = Stories.new(Fabricate(:story, :points => 2, :state => :started),
-                            Fabricate(:story, :points => 10, :state => :unstarted),
-                            Fabricate(:story, :points => 8, :state => :unstarted))
+      stories = Stories.new(double(:story, :points => 2, :completed? => false),
+                            double(:story, :points => 10, :completed? => false),
+                            double(:story, :points => 8, :completed? => false))
       DataStore.stub(:stories_for_project).and_return(stories)
 
       project = Project.new(:estimated_velocity => 20)
@@ -91,18 +91,18 @@ module Trajectory
     end
 
     it 'can estimate the percentage of completion' do
-      stories = Stories.new(Fabricate(:story, :points => 1, :state => :started),
-                            Fabricate(:story, :points => 10, :state => :unstarted),
-                            Fabricate(:story, :points => 9, :state => :accepted))
+      stories = Stories.new(double(:story, :points => 1, :completed? => false),
+                            double(:story, :points => 10, :completed? => false),
+                            double(:story, :points => 9, :completed? => true))
       DataStore.stub(:stories_for_project).and_return(stories)
 
       Project.new.percent_complete.should == 45.0
     end
 
     it 'can return the sum of completed stories points' do
-      stories = Stories.new(Fabricate(:story, :points => 1, :state => :started),
-                            Fabricate(:story, :points => 10, :state => :accepted),
-                            Fabricate(:story, :points => 9, :state => :accepted))
+      stories = Stories.new(double(:story, :points => 1, :completed? => false),
+                            double(:story, :points => 10, :completed? => true),
+                            double(:story, :points => 9, :completed? => true))
       DataStore.stub(:stories_for_project).and_return(stories)
 
       Project.new.accepted_points.should == 19
