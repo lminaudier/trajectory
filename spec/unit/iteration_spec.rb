@@ -40,7 +40,7 @@ module Trajectory
 
     it 'delegates fetching of its stories to its project' do
       project = double
-      iteration = Fabricate(:iteration)
+      iteration = Iteration.new(:id => 42)
       iteration.project = project
 
       project.should_receive(:stories_in_iteration).with(iteration)
