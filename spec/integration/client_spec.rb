@@ -47,8 +47,18 @@ describe Trajectory::Client do
     end
   end
 
+  it 'is able to retrieve all ideas of a project' do
+    VCR.use_cassette('projects_and_ideas') do
+      project = Trajectory::Client.new.projects.first
+
+      idea_1 = Trajectory::Idea.new(id: 15505355)
+      idea_2 = Trajectory::Idea.new(id: 15505354)
+      project.ideas.should == Trajectory::Ideas.new(idea_1, idea_2)
+    end
+  end
+
   it 'creates association from iteration to project' do
-    VCR.use_cassette('projects_and_iterations') do
+    VCR.use_cassette('projects_and_iterations_association') do
       project = Trajectory::Client.new.projects.first
       iteration = project.iterations.first
       iteration.project.should == project
@@ -56,11 +66,19 @@ describe Trajectory::Client do
   end
 
   it 'creates association from story to project' do
-    VCR.use_cassette('projects_and_stories') do
+    VCR.use_cassette('projects_and_stories_association') do
       project = Trajectory::Client.new.projects.first
       story = project.stories.first
 
       story.project.should == project
+    end
+  end
+
+  it 'creates association from idea to project' do
+    VCR.use_cassette('projects_and_ideas_association') do
+      project = Trajectory::Client.new.projects.first
+      idea = project.ideas.first
+      idea.project.should == project
     end
   end
 end

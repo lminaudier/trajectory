@@ -13,6 +13,8 @@ require 'trajectory/project'
 require 'trajectory/projects'
 require 'trajectory/iteration'
 require 'trajectory/iterations'
+require 'trajectory/idea'
+require 'trajectory/ideas'
 
 require 'trajectory/api'
 require 'trajectory/data_store'

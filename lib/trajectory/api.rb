@@ -19,6 +19,10 @@ module Trajectory
         JSON.parse(get_json("/projects/#{project.keyword}/iterations.json"))
       end
 
+      def ideas_for_project(project)
+        JSON.parse(get_json("/projects/#{project.keyword}/ideas.json"))
+      end
+
       def get_json(url)
         get_body(url, options)
       end

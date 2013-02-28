@@ -15,6 +15,13 @@ module Trajectory
       end)
     end
 
+    def ideas_for_project(project)
+      Ideas.new(*Api.ideas_for_project(project).map do |idea|
+        attributes = idea.symbolize_keys!.merge({project_id: project.id})
+        Idea.new(attributes)
+      end)
+    end
+
     def find_project_by_id(id)
       projects.find_by_id(id)
     end
