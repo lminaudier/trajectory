@@ -8,6 +8,12 @@ module Trajectory
       end)
     end
 
+    def users_for_project(project)
+      Users.new(*Api.users_for_project(project).map do |user|
+        User.new(user.symbolize_keys!)
+      end)
+    end
+
     def stories_for_project(project)
       Stories.new(*Api.stories_for_project(project).map do |story|
         attributes = story.symbolize_keys!.merge({project_id: project.id})

@@ -32,6 +32,10 @@ module Trajectory
       @ideas ||= DataStore.ideas_for_project(self)
     end
 
+    def users
+      @users ||= DataStore.users_for_project(self)
+    end
+
     def stories_in_iteration(iteration)
       stories.in_iteration(iteration)
     end
