@@ -57,5 +57,15 @@ module Trajectory
       Story.new(iteration_id: 42).should be_in_iteration(iteration)
       Story.new(iteration_id: 51).should_not be_in_iteration(iteration)
     end
+
+    it 'delegates user fetching to data store' do
+      project = double
+      story = Story.new(user_id: 42)
+      story.stub(:project).and_return(project)
+
+      DataStore.should_receive(:find_user_of_project_with_id).with(project, 42)
+
+      story.user
+    end
   end
 end

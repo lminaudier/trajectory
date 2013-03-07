@@ -17,6 +17,7 @@ module Trajectory
     attribute :development_needed, Boolean
     attribute :deleted, Boolean
     attribute :user_name, String
+    attribute :user_id, Integer
     attribute :comments_count, Integer
     attribute :state, Symbol
     attribute :project_id, Integer
@@ -44,6 +45,10 @@ module Trajectory
 
     def completed?
       state == :accepted
+    end
+
+    def user
+      DataStore.find_user_of_project_with_id(project, user_id)
     end
 
     def in_iteration?(iteration)
