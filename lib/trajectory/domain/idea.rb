@@ -22,5 +22,9 @@ module Trajectory
     def project
       DataStore.find_project_by_id(project_id)
     end
+
+    def user
+      DataStore.find_user_of_project_with_id(project, user_id)
+    end
   end
 end

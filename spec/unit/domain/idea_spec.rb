@@ -32,5 +32,15 @@ module Trajectory
 
       Idea.new.project
     end
+
+    it 'delegates user fetching to data store' do
+      project = double
+      idea = Idea.new(user_id: 42)
+      idea.stub(:project).and_return(project)
+
+      DataStore.should_receive(:find_user_of_project_with_id).with(project, 42)
+
+      idea.user
+    end
   end
 end

@@ -27,6 +27,7 @@ module Trajectory
         JSON.parse(get_json("/projects/#{project.keyword}/ideas.json"))
       end
 
+      private
       def get_json(url)
         get_body(url, options)
       end

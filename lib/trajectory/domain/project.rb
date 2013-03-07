@@ -4,7 +4,7 @@ module Trajectory
 
     NUMBER_OF_WORKING_DAYS_BY_WEEK = 5.0
 
-    attr_writer :stories
+    attr_writer :stories, :users_collection
     attribute :id, Integer, default: lambda { |project, attribute| raise MissingAttributeError.new(project, :id) }
     attribute :name, String
     attribute :archived, Boolean
@@ -33,7 +33,11 @@ module Trajectory
     end
 
     def users
-      @users ||= DataStore.users_for_project(self)
+      @users_collection ||= DataStore.users_for_project(self)
+    end
+
+    def find_user_by_id(id)
+      users.find_by_id(id)
     end
 
     def stories_in_iteration(iteration)

@@ -32,6 +32,10 @@ module Trajectory
       projects.find_by_id(id)
     end
 
+    def find_user_of_project_with_id(project, user_id)
+      project.find_user_by_id(user_id)
+    end
+
     def iterations_for_project(project)
       Iterations.new(*Api.iterations_for_project(project).map do |attributes|
         attributes = attributes.symbolize_keys!.merge({project_id: project.id})
