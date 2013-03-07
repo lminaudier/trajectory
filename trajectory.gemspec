@@ -8,8 +8,8 @@ Gem::Specification.new do |gem|
   gem.version       = Trajectory::VERSION
   gem.authors       = ["Loïc Minaudier"]
   gem.email         = ["loic.minaudier@gmail.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
+  gem.description   = %q{Ruby API Wrapper for Thoughbot Trajectory app}
+  gem.summary       = %q{Ruby API Wrapper for Thoughbot Trajectory app}
   gem.homepage      = ""
 
   gem.files         = `git ls-files`.split($/)
