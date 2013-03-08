@@ -57,6 +57,23 @@ describe Trajectory::Client, :vcr => vcr_options do
     project.users.should == Trajectory::Users.new(user_1)
   end
 
+  it 'is able to retrieve all updates of a project' do
+    project = Trajectory::Client.new.projects.first
+
+    iteration_1 = Trajectory::Iteration.new(id: 16055704)
+    iteration_2 = Trajectory::Iteration.new(id: 16057164)
+    iteration_3 = Trajectory::Iteration.new(id: 16063751)
+
+    story_1 = Trajectory::Story.new(id: 15623694)
+    story_2 = Trajectory::Story.new(id: 15623695)
+
+    project.updates(since: DateTime.new(2013,1,1)).iterations.should == Trajectory::Iterations.new(iteration_1, iteration_2, iteration_3)
+    project.updates(since: DateTime.new(2013,1,1)).stories.should == Trajectory::Stories.new(story_1, story_2)
+
+    project.updates(since: DateTime.now).iterations.should == Trajectory::Iterations.new
+    project.updates(since: DateTime.now).stories.should == Trajectory::Stories.new
+  end
+
   it 'creates association from iteration to project' do
     project = Trajectory::Client.new.projects.first
     iteration = project.iterations.first

@@ -27,6 +27,10 @@ module Trajectory
         JSON.parse(get_json("/projects/#{project.keyword}/ideas.json"))
       end
 
+      def updates_for_project(project, since)
+        JSON.parse(get_json("/projects/#{project.keyword}/updates.json?since=#{since.to_s}"))
+      end
+
       private
       def get_json(url)
         get_body(url, options)

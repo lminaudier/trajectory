@@ -36,6 +36,10 @@ module Trajectory
       @users_collection ||= DataStore.users_for_project(self)
     end
 
+    def updates(since: DateTime.now)
+      DataStore.updates_for_project(self, since)
+    end
+
     def find_user_by_id(id)
       users.find_by_id(id)
     end

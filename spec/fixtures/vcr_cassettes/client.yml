@@ -285,4 +285,516 @@ http_interactions:
       string: '[{"created_at":"2013-02-19T17:31:47+01:00","email":"loic.minaudier+fake-user-for-api@gmail.com","id":15506817,"name":"loic-minaudier-fake-user-for-api","updated_at":"2013-02-19T17:31:47+01:00","gravatar_url":"https://secure.gravatar.com/avatar/9ddba4784ddfcd87efaf03ba3b96e51c.png?d=https%3A%2F%2Fwww.apptrajectory.com%2Fassets%2Fuser.png&amp;r=PG&amp;s=150"}]'
     http_version: 
   recorded_at: Thu, 07 Mar 2013 16:51:01 GMT
+- request:
+    method: get
+    uri: https://www.apptrajectory.com/api/76900a72434cfe249da911eea2a6c94a/accounts/fake-user-for-api-test/projects/test/updates.json?since=2013-01-01T00:00:00%2000:00
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 08 Mar 2013 09:27:08 GMT
+      Etag:
+      - '"1c8f4014f95b29cd66ce65d5eb132470"'
+      Server:
+      - thin 1.3.1 codename Triple Espresso
+      Set-Cookie:
+      - _trajectory_session=BAh7CEkiD3Nlc3Npb25faWQGOgZFRkkiJTIxZTc0ZWRkY2NjMzYyYmIwZWYxMWU0NTNlOWY3ZTU2BjsAVEkiDWttX3F1ZXVlBjsARlsGWwdJIg1pZGVudGlmeQY7AEZJIhVhY2NvdW50LTE1NTAwMzI5BjsARkkiEGttX2lkZW50aXR5BjsARkAM--31a219b12c19463bdd2d5be43c0ac747a7b67160;
+        path=/; HttpOnly
+      - remember_token=4771d415418b4cd08b7bf6f671c816788bc98f9d; path=/; expires=Sat,
+        08-Mar-2014 09:27:08 GMT
+      X-Rack-Cache:
+      - miss
+      X-Request-Id:
+      - c982d1fbf6daf53d81117d2354a039bc
+      X-Runtime:
+      - '0.439292'
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"timestamp":"2013-03-08T09:27:08+00:00","stories":[{"archived":true,"assignee_id":15506817,"branch":"l-story-1","comments_count":0,"created_at":"2013-02-21T16:49:27+01:00","deleted":false,"design_needed":false,"development_needed":false,"id":15623694,"idea_id":null,"iteration_id":16055704,"points":1,"position":100,"state":"accepted","task_type":"Feature","title":"story
+        1","updated_at":"2013-02-22T11:46:44+01:00","user_id":15506817,"state_events":["unaccept"],"comma_separated_tags":null},{"archived":false,"assignee_id":null,"branch":null,"comments_count":0,"created_at":"2013-02-21T16:49:31+01:00","deleted":false,"design_needed":false,"development_needed":false,"id":15623695,"idea_id":null,"iteration_id":16063751,"points":0,"position":200,"state":"unstarted","task_type":"Feature","title":"story
+        2","updated_at":"2013-03-04T01:05:00+01:00","user_id":15506817,"state_events":["start"],"comma_separated_tags":null}],"iterations":[{"accepted_points":1,"comments_count":0,"complete":true,"created_at":"2013-02-19T17:32:06+01:00","estimated_points":1,"estimated_velocity":20,"id":16055704,"starts_on":"2013-02-18","stories_count":1,"team_strength":100,"updated_at":"2013-02-25T01:05:09+01:00","percent_complete":100,"current?":false,"future?":false,"accepted_stories_count":1},{"accepted_points":0,"comments_count":0,"complete":true,"created_at":"2013-02-25T01:05:09+01:00","estimated_points":0,"estimated_velocity":13,"id":16057164,"starts_on":"2013-02-25","stories_count":0,"team_strength":100,"updated_at":"2013-03-04T01:05:00+01:00","percent_complete":0,"current?":false,"future?":false,"accepted_stories_count":0},{"accepted_points":0,"comments_count":0,"complete":false,"created_at":"2013-03-04T01:05:00+01:00","estimated_points":0,"estimated_velocity":7,"id":16063751,"starts_on":"2013-03-04","stories_count":1,"team_strength":100,"updated_at":"2013-03-04T01:05:00+01:00","percent_complete":0,"current?":true,"future?":false,"accepted_stories_count":0}],"updates":[{"id":15813566,"meta":"started","type":"StateChange","user_id":15506817,"created_at":"2013-02-22T11:46:34+01:00","updated_at":"2013-02-22T11:46:34+01:00","updateable_id":15623694,"updateable_type":"Story","":[]},{"id":15813567,"meta":"finished","type":"StateChange","user_id":15506817,"created_at":"2013-02-22T11:46:36+01:00","updated_at":"2013-02-22T11:46:36+01:00","updateable_id":15623694,"updateable_type":"Story","":[]},{"id":15813568,"meta":"delivered","type":"StateChange","user_id":15506817,"created_at":"2013-02-22T11:46:41+01:00","updated_at":"2013-02-22T11:46:41+01:00","updateable_id":15623694,"updateable_type":"Story","":[]},{"id":15813569,"meta":"accepted","type":"StateChange","user_id":15506817,"created_at":"2013-02-22T11:46:44+01:00","updated_at":"2013-02-22T11:46:44+01:00","updateable_id":15623694,"updateable_type":"Story","":[]}]}'
+    http_version: 
+  recorded_at: Fri, 08 Mar 2013 09:27:11 GMT
+- request:
+    method: get
+    uri: https://www.apptrajectory.com/api/76900a72434cfe249da911eea2a6c94a/accounts/fake-user-for-api-test/projects/test/updates.json?since=2013-01-01T00:00:00%2000:00
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 08 Mar 2013 10:13:28 GMT
+      Etag:
+      - '"961c71551a45bd90eb354adc13aa7f15"'
+      Server:
+      - thin 1.3.1 codename Triple Espresso
+      Set-Cookie:
+      - _trajectory_session=BAh7CEkiD3Nlc3Npb25faWQGOgZFRkkiJTViOTI4OWJiOTBmNjIxNjI0MjUyYmY3OTQ2MGY1ZTczBjsAVEkiDWttX3F1ZXVlBjsARlsGWwdJIg1pZGVudGlmeQY7AEZJIhVhY2NvdW50LTE1NTAwMzI5BjsARkkiEGttX2lkZW50aXR5BjsARkAM--70c5f1b87c3576bf7223aebd5d5532f0319c0ef2;
+        path=/; HttpOnly
+      - remember_token=4771d415418b4cd08b7bf6f671c816788bc98f9d; path=/; expires=Sat,
+        08-Mar-2014 10:13:28 GMT
+      X-Rack-Cache:
+      - miss
+      X-Request-Id:
+      - 0d64f423aa6ff8084f78b8e7212362c5
+      X-Runtime:
+      - '0.070677'
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"timestamp":"2013-03-08T10:13:28+00:00","stories":[{"archived":true,"assignee_id":15506817,"branch":"l-story-1","comments_count":0,"created_at":"2013-02-21T16:49:27+01:00","deleted":false,"design_needed":false,"development_needed":false,"id":15623694,"idea_id":null,"iteration_id":16055704,"points":1,"position":100,"state":"accepted","task_type":"Feature","title":"story
+        1","updated_at":"2013-02-22T11:46:44+01:00","user_id":15506817,"state_events":["unaccept"],"comma_separated_tags":null},{"archived":false,"assignee_id":null,"branch":null,"comments_count":0,"created_at":"2013-02-21T16:49:31+01:00","deleted":false,"design_needed":false,"development_needed":false,"id":15623695,"idea_id":null,"iteration_id":16063751,"points":0,"position":200,"state":"unstarted","task_type":"Feature","title":"story
+        2","updated_at":"2013-03-04T01:05:00+01:00","user_id":15506817,"state_events":["start"],"comma_separated_tags":null}],"iterations":[{"accepted_points":1,"comments_count":0,"complete":true,"created_at":"2013-02-19T17:32:06+01:00","estimated_points":1,"estimated_velocity":20,"id":16055704,"starts_on":"2013-02-18","stories_count":1,"team_strength":100,"updated_at":"2013-02-25T01:05:09+01:00","percent_complete":100,"current?":false,"future?":false,"accepted_stories_count":1},{"accepted_points":0,"comments_count":0,"complete":true,"created_at":"2013-02-25T01:05:09+01:00","estimated_points":0,"estimated_velocity":13,"id":16057164,"starts_on":"2013-02-25","stories_count":0,"team_strength":100,"updated_at":"2013-03-04T01:05:00+01:00","percent_complete":0,"current?":false,"future?":false,"accepted_stories_count":0},{"accepted_points":0,"comments_count":0,"complete":false,"created_at":"2013-03-04T01:05:00+01:00","estimated_points":0,"estimated_velocity":7,"id":16063751,"starts_on":"2013-03-04","stories_count":1,"team_strength":100,"updated_at":"2013-03-04T01:05:00+01:00","percent_complete":0,"current?":true,"future?":false,"accepted_stories_count":0}],"updates":[{"id":15813566,"meta":"started","type":"StateChange","user_id":15506817,"created_at":"2013-02-22T11:46:34+01:00","updated_at":"2013-02-22T11:46:34+01:00","updateable_id":15623694,"updateable_type":"Story","":[]},{"id":15813567,"meta":"finished","type":"StateChange","user_id":15506817,"created_at":"2013-02-22T11:46:36+01:00","updated_at":"2013-02-22T11:46:36+01:00","updateable_id":15623694,"updateable_type":"Story","":[]},{"id":15813568,"meta":"delivered","type":"StateChange","user_id":15506817,"created_at":"2013-02-22T11:46:41+01:00","updated_at":"2013-02-22T11:46:41+01:00","updateable_id":15623694,"updateable_type":"Story","":[]},{"id":15813569,"meta":"accepted","type":"StateChange","user_id":15506817,"created_at":"2013-02-22T11:46:44+01:00","updated_at":"2013-02-22T11:46:44+01:00","updateable_id":15623694,"updateable_type":"Story","":[]}]}'
+    http_version: 
+  recorded_at: Fri, 08 Mar 2013 10:13:32 GMT
+- request:
+    method: get
+    uri: https://www.apptrajectory.com/api/76900a72434cfe249da911eea2a6c94a/accounts/fake-user-for-api-test/projects/test/updates.json?since=2013-01-01T00:00:00%2000:00
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 08 Mar 2013 10:13:29 GMT
+      Etag:
+      - '"d47d6c90e64be49244d0ba426ca7fd81"'
+      Server:
+      - thin 1.3.1 codename Triple Espresso
+      Set-Cookie:
+      - _trajectory_session=BAh7CEkiD3Nlc3Npb25faWQGOgZFRkkiJTcyOGJkM2FjMWRjMWE3NTllZDM3YmQ3MTQ2YmY2NWVjBjsAVEkiDWttX3F1ZXVlBjsARlsGWwdJIg1pZGVudGlmeQY7AEZJIhVhY2NvdW50LTE1NTAwMzI5BjsARkkiEGttX2lkZW50aXR5BjsARkAM--ab1d9dc051920f7600af3a5888184d7e849cbc15;
+        path=/; HttpOnly
+      - remember_token=4771d415418b4cd08b7bf6f671c816788bc98f9d; path=/; expires=Sat,
+        08-Mar-2014 10:13:29 GMT
+      X-Rack-Cache:
+      - miss
+      X-Request-Id:
+      - 02d9c3a1ca0850363059606bb6d03c67
+      X-Runtime:
+      - '0.083376'
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"timestamp":"2013-03-08T10:13:29+00:00","stories":[{"archived":true,"assignee_id":15506817,"branch":"l-story-1","comments_count":0,"created_at":"2013-02-21T16:49:27+01:00","deleted":false,"design_needed":false,"development_needed":false,"id":15623694,"idea_id":null,"iteration_id":16055704,"points":1,"position":100,"state":"accepted","task_type":"Feature","title":"story
+        1","updated_at":"2013-02-22T11:46:44+01:00","user_id":15506817,"state_events":["unaccept"],"comma_separated_tags":null},{"archived":false,"assignee_id":null,"branch":null,"comments_count":0,"created_at":"2013-02-21T16:49:31+01:00","deleted":false,"design_needed":false,"development_needed":false,"id":15623695,"idea_id":null,"iteration_id":16063751,"points":0,"position":200,"state":"unstarted","task_type":"Feature","title":"story
+        2","updated_at":"2013-03-04T01:05:00+01:00","user_id":15506817,"state_events":["start"],"comma_separated_tags":null}],"iterations":[{"accepted_points":1,"comments_count":0,"complete":true,"created_at":"2013-02-19T17:32:06+01:00","estimated_points":1,"estimated_velocity":20,"id":16055704,"starts_on":"2013-02-18","stories_count":1,"team_strength":100,"updated_at":"2013-02-25T01:05:09+01:00","percent_complete":100,"current?":false,"future?":false,"accepted_stories_count":1},{"accepted_points":0,"comments_count":0,"complete":true,"created_at":"2013-02-25T01:05:09+01:00","estimated_points":0,"estimated_velocity":13,"id":16057164,"starts_on":"2013-02-25","stories_count":0,"team_strength":100,"updated_at":"2013-03-04T01:05:00+01:00","percent_complete":0,"current?":false,"future?":false,"accepted_stories_count":0},{"accepted_points":0,"comments_count":0,"complete":false,"created_at":"2013-03-04T01:05:00+01:00","estimated_points":0,"estimated_velocity":7,"id":16063751,"starts_on":"2013-03-04","stories_count":1,"team_strength":100,"updated_at":"2013-03-04T01:05:00+01:00","percent_complete":0,"current?":true,"future?":false,"accepted_stories_count":0}],"updates":[{"id":15813566,"meta":"started","type":"StateChange","user_id":15506817,"created_at":"2013-02-22T11:46:34+01:00","updated_at":"2013-02-22T11:46:34+01:00","updateable_id":15623694,"updateable_type":"Story","":[]},{"id":15813567,"meta":"finished","type":"StateChange","user_id":15506817,"created_at":"2013-02-22T11:46:36+01:00","updated_at":"2013-02-22T11:46:36+01:00","updateable_id":15623694,"updateable_type":"Story","":[]},{"id":15813568,"meta":"delivered","type":"StateChange","user_id":15506817,"created_at":"2013-02-22T11:46:41+01:00","updated_at":"2013-02-22T11:46:41+01:00","updateable_id":15623694,"updateable_type":"Story","":[]},{"id":15813569,"meta":"accepted","type":"StateChange","user_id":15506817,"created_at":"2013-02-22T11:46:44+01:00","updated_at":"2013-02-22T11:46:44+01:00","updateable_id":15623694,"updateable_type":"Story","":[]}]}'
+    http_version: 
+  recorded_at: Fri, 08 Mar 2013 10:13:33 GMT
+- request:
+    method: get
+    uri: https://www.apptrajectory.com/api/76900a72434cfe249da911eea2a6c94a/accounts/fake-user-for-api-test/projects/test/updates.json?since=2013-03-08T11:23:55%2001:00
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 08 Mar 2013 10:23:53 GMT
+      Etag:
+      - '"3ffc630b5e735e88d26d702a072dbb70"'
+      Server:
+      - thin 1.3.1 codename Triple Espresso
+      Set-Cookie:
+      - _trajectory_session=BAh7CEkiD3Nlc3Npb25faWQGOgZFRkkiJTQxZGJlN2JiZTVkMDJiMzFiZjVjYzNlNzIxNDdiMzQxBjsAVEkiDWttX3F1ZXVlBjsARlsGWwdJIg1pZGVudGlmeQY7AEZJIhVhY2NvdW50LTE1NTAwMzI5BjsARkkiEGttX2lkZW50aXR5BjsARkAM--c8e970071242c3151010cf49cc7b3bb6da514077;
+        path=/; HttpOnly
+      - remember_token=4771d415418b4cd08b7bf6f671c816788bc98f9d; path=/; expires=Sat,
+        08-Mar-2014 10:23:53 GMT
+      X-Rack-Cache:
+      - miss
+      X-Request-Id:
+      - 56eb00d014315dd13d61890f5bc3cfd4
+      X-Runtime:
+      - '0.043583'
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"timestamp":"2013-03-08T10:23:53+00:00","stories":[],"iterations":[],"updates":[]}'
+    http_version: 
+  recorded_at: Fri, 08 Mar 2013 10:23:56 GMT
+- request:
+    method: get
+    uri: https://www.apptrajectory.com/api/76900a72434cfe249da911eea2a6c94a/accounts/fake-user-for-api-test/projects/test/updates.json?since=2013-03-08T11:23:56%2001:00
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 08 Mar 2013 10:23:53 GMT
+      Etag:
+      - '"3ffc630b5e735e88d26d702a072dbb70"'
+      Server:
+      - thin 1.3.1 codename Triple Espresso
+      Set-Cookie:
+      - _trajectory_session=BAh7CEkiD3Nlc3Npb25faWQGOgZFRkkiJWM5N2NhM2IzOWFkMGNhMmY0YTE2YWJhNjRiYzliNTM1BjsAVEkiDWttX3F1ZXVlBjsARlsGWwdJIg1pZGVudGlmeQY7AEZJIhVhY2NvdW50LTE1NTAwMzI5BjsARkkiEGttX2lkZW50aXR5BjsARkAM--41a07ef734e4db9b9d47857eeff7f76c21df5369;
+        path=/; HttpOnly
+      - remember_token=4771d415418b4cd08b7bf6f671c816788bc98f9d; path=/; expires=Sat,
+        08-Mar-2014 10:23:53 GMT
+      X-Rack-Cache:
+      - miss
+      X-Request-Id:
+      - 9a151350b9c30c1d38ab4549ea0c4170
+      X-Runtime:
+      - '0.088776'
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      Content-Length:
+      - '83'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"timestamp":"2013-03-08T10:23:53+00:00","stories":[],"iterations":[],"updates":[]}'
+    http_version: 
+  recorded_at: Fri, 08 Mar 2013 10:23:57 GMT
+- request:
+    method: get
+    uri: https://www.apptrajectory.com/api/76900a72434cfe249da911eea2a6c94a/accounts/fake-user-for-api-test/projects/test/updates.json?since=2013-03-08T11:25:17%2001:00
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 08 Mar 2013 10:25:15 GMT
+      Etag:
+      - '"b064a68e6fe0f37c0a93a53cb41c4c32"'
+      Server:
+      - thin 1.3.1 codename Triple Espresso
+      Set-Cookie:
+      - _trajectory_session=BAh7CEkiD3Nlc3Npb25faWQGOgZFRkkiJTRmYjNhNWYyYWMwZGQ2YmJhZTljZTFiNTNkYzA2ZjVjBjsAVEkiDWttX3F1ZXVlBjsARlsGWwdJIg1pZGVudGlmeQY7AEZJIhVhY2NvdW50LTE1NTAwMzI5BjsARkkiEGttX2lkZW50aXR5BjsARkAM--a6f92612838947068b240b8a00f3ece9d8b6a217;
+        path=/; HttpOnly
+      - remember_token=4771d415418b4cd08b7bf6f671c816788bc98f9d; path=/; expires=Sat,
+        08-Mar-2014 10:25:15 GMT
+      X-Rack-Cache:
+      - miss
+      X-Request-Id:
+      - b790cafe3cc3cc1e21f80924df48cece
+      X-Runtime:
+      - '0.035147'
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"timestamp":"2013-03-08T10:25:15+00:00","stories":[],"iterations":[],"updates":[]}'
+    http_version: 
+  recorded_at: Fri, 08 Mar 2013 10:25:19 GMT
+- request:
+    method: get
+    uri: https://www.apptrajectory.com/api/76900a72434cfe249da911eea2a6c94a/accounts/fake-user-for-api-test/projects/test/updates.json?since=2013-03-08T11:25:19%2001:00
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 08 Mar 2013 10:25:15 GMT
+      Etag:
+      - '"b064a68e6fe0f37c0a93a53cb41c4c32"'
+      Server:
+      - thin 1.3.1 codename Triple Espresso
+      Set-Cookie:
+      - _trajectory_session=BAh7CEkiD3Nlc3Npb25faWQGOgZFRkkiJTUwNzA5YjczZjJiM2FkMjY2MmRkMmQ1YTY0MGQ0MmI5BjsAVEkiDWttX3F1ZXVlBjsARlsGWwdJIg1pZGVudGlmeQY7AEZJIhVhY2NvdW50LTE1NTAwMzI5BjsARkkiEGttX2lkZW50aXR5BjsARkAM--c20754970993a977deab1004cabee65ce3bfa929;
+        path=/; HttpOnly
+      - remember_token=4771d415418b4cd08b7bf6f671c816788bc98f9d; path=/; expires=Sat,
+        08-Mar-2014 10:25:15 GMT
+      X-Rack-Cache:
+      - miss
+      X-Request-Id:
+      - 488aec8e3c7226ee2732d10724e3b811
+      X-Runtime:
+      - '0.034794'
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      Content-Length:
+      - '83'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"timestamp":"2013-03-08T10:25:15+00:00","stories":[],"iterations":[],"updates":[]}'
+    http_version: 
+  recorded_at: Fri, 08 Mar 2013 10:25:19 GMT
+- request:
+    method: get
+    uri: https://www.apptrajectory.com/api/76900a72434cfe249da911eea2a6c94a/accounts/fake-user-for-api-test/projects/test/updates.json?since=2013-03-08T11:34:30%2001:00
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 08 Mar 2013 10:34:27 GMT
+      Etag:
+      - '"aee1f587af83e83aff54f8bb99cccd06"'
+      Server:
+      - thin 1.3.1 codename Triple Espresso
+      Set-Cookie:
+      - _trajectory_session=BAh7CEkiD3Nlc3Npb25faWQGOgZFRkkiJTI1MTI1YzNkOTgwOGUzZTk2Zjg2YzJjNDllOTRmODEzBjsAVEkiDWttX3F1ZXVlBjsARlsGWwdJIg1pZGVudGlmeQY7AEZJIhVhY2NvdW50LTE1NTAwMzI5BjsARkkiEGttX2lkZW50aXR5BjsARkAM--bb07c9c03a05e24ce772717bffb4b34b88e590da;
+        path=/; HttpOnly
+      - remember_token=4771d415418b4cd08b7bf6f671c816788bc98f9d; path=/; expires=Sat,
+        08-Mar-2014 10:34:27 GMT
+      X-Rack-Cache:
+      - miss
+      X-Request-Id:
+      - 220f2b7e7e36ab9fc5d206388cb09665
+      X-Runtime:
+      - '0.035942'
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      Content-Length:
+      - '83'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"timestamp":"2013-03-08T10:34:27+00:00","stories":[],"iterations":[],"updates":[]}'
+    http_version: 
+  recorded_at: Fri, 08 Mar 2013 10:34:31 GMT
+- request:
+    method: get
+    uri: https://www.apptrajectory.com/api/76900a72434cfe249da911eea2a6c94a/accounts/fake-user-for-api-test/projects/test/updates.json?since=2013-03-08T11:34:31%2001:00
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 08 Mar 2013 10:34:28 GMT
+      Etag:
+      - '"749e9a5f4b9f2e438a29a4486b65368a"'
+      Server:
+      - thin 1.3.1 codename Triple Espresso
+      Set-Cookie:
+      - _trajectory_session=BAh7CEkiD3Nlc3Npb25faWQGOgZFRkkiJTRkYzhiM2I0NTZmNzFlYTcwNWRmMDZmYThhYzA4NzQ2BjsAVEkiDWttX3F1ZXVlBjsARlsGWwdJIg1pZGVudGlmeQY7AEZJIhVhY2NvdW50LTE1NTAwMzI5BjsARkkiEGttX2lkZW50aXR5BjsARkAM--762631d66d9fc16477d87f98c9cb05aa24362918;
+        path=/; HttpOnly
+      - remember_token=4771d415418b4cd08b7bf6f671c816788bc98f9d; path=/; expires=Sat,
+        08-Mar-2014 10:34:28 GMT
+      X-Rack-Cache:
+      - miss
+      X-Request-Id:
+      - 413e02ab3a23790796fd6538b96a6acb
+      X-Runtime:
+      - '0.039528'
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"timestamp":"2013-03-08T10:34:28+00:00","stories":[],"iterations":[],"updates":[]}'
+    http_version: 
+  recorded_at: Fri, 08 Mar 2013 10:34:32 GMT
+- request:
+    method: get
+    uri: https://www.apptrajectory.com/api/76900a72434cfe249da911eea2a6c94a/accounts/fake-user-for-api-test/projects/test/updates.json?since=2013-03-08T11:34:52%2001:00
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 08 Mar 2013 10:34:48 GMT
+      Etag:
+      - '"896ab2acf4f378d2d6a2a36c3bf88ae1"'
+      Server:
+      - thin 1.3.1 codename Triple Espresso
+      Set-Cookie:
+      - _trajectory_session=BAh7CEkiD3Nlc3Npb25faWQGOgZFRkkiJTYxNmM4YjY1ZGM4MmM2ZWQ2NDRjMGJkYjhmNjU3NWQ5BjsAVEkiDWttX3F1ZXVlBjsARlsGWwdJIg1pZGVudGlmeQY7AEZJIhVhY2NvdW50LTE1NTAwMzI5BjsARkkiEGttX2lkZW50aXR5BjsARkAM--deadd153879c24eb71783854d736ed5a37a56f0b;
+        path=/; HttpOnly
+      - remember_token=4771d415418b4cd08b7bf6f671c816788bc98f9d; path=/; expires=Sat,
+        08-Mar-2014 10:34:48 GMT
+      X-Rack-Cache:
+      - miss
+      X-Request-Id:
+      - eb9c911238bf7c2d659e63037be9bf0a
+      X-Runtime:
+      - '0.047578'
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"timestamp":"2013-03-08T10:34:48+00:00","stories":[],"iterations":[],"updates":[]}'
+    http_version: 
+  recorded_at: Fri, 08 Mar 2013 10:34:52 GMT
+- request:
+    method: get
+    uri: https://www.apptrajectory.com/api/76900a72434cfe249da911eea2a6c94a/accounts/fake-user-for-api-test/projects/test/updates.json?since=2013-03-08T11:34:52%2001:00
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 08 Mar 2013 10:34:49 GMT
+      Etag:
+      - '"ca09560db9be7b1148569c99d89953ab"'
+      Server:
+      - thin 1.3.1 codename Triple Espresso
+      Set-Cookie:
+      - _trajectory_session=BAh7CEkiD3Nlc3Npb25faWQGOgZFRkkiJWJlZWRiOTkzNjAwM2MzZjM4MjczYTgzNDU5MWMzM2I5BjsAVEkiDWttX3F1ZXVlBjsARlsGWwdJIg1pZGVudGlmeQY7AEZJIhVhY2NvdW50LTE1NTAwMzI5BjsARkkiEGttX2lkZW50aXR5BjsARkAM--b9683c6133ca1268845920e74380998a4e886ec8;
+        path=/; HttpOnly
+      - remember_token=4771d415418b4cd08b7bf6f671c816788bc98f9d; path=/; expires=Sat,
+        08-Mar-2014 10:34:49 GMT
+      X-Rack-Cache:
+      - miss
+      X-Request-Id:
+      - 0c1148baa124a5282f9dfc619723b88c
+      X-Runtime:
+      - '0.036259'
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"timestamp":"2013-03-08T10:34:49+00:00","stories":[],"iterations":[],"updates":[]}'
+    http_version: 
+  recorded_at: Fri, 08 Mar 2013 10:34:53 GMT
 recorded_with: VCR 2.4.0

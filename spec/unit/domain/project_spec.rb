@@ -114,6 +114,13 @@ module Trajectory
       project.iterations
     end
 
+    it 'delegates fetching of updates of a project to the data store' do
+      since = double
+      DataStore.should_receive(:updates_for_project).with(project, since)
+
+      project.updates(since: since)
+    end
+
     it 'can get stories of a given iteration' do
       stories = double
       iteration = double

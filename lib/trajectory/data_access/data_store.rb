@@ -28,6 +28,25 @@ module Trajectory
       end)
     end
 
+    def updates_for_project(project, since)
+      updates = Api.updates_for_project(project, since)
+      updates.symbolize_keys!
+
+      stories = Stories.new(*updates[:stories].map do |attributes|
+        attributes = attributes.symbolize_keys!.merge({project_id: project.id})
+        Story.new attributes
+      end)
+
+      iterations = Iterations.new(*updates[:iterations].map do |attributes|
+        attributes = attributes.symbolize_keys!.merge({project_id: project.id})
+        attributes[:current] = attributes[:current?]
+        attributes.delete(:current?)
+        Iteration.new attributes
+      end)
+
+      Updates.new(stories, iterations)
+    end
+
     def find_project_by_id(id)
       projects.find_by_id(id)
     end
