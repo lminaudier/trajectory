@@ -44,7 +44,7 @@ module Trajectory
         Iteration.new attributes
       end)
 
-      Updates.new(stories, iterations)
+      Update.new(stories, iterations)
     end
 
     def find_project_by_id(id)
