@@ -10,6 +10,7 @@ group :test do
   gem 'webmock'
   gem 'fabrication'
   gem 'simplecov', :require => false
+  gem 'timecop'
 end
 
 # Specify your gem's dependencies in trajectory.gemspec

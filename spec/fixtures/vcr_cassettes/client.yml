@@ -797,4 +797,57 @@ http_interactions:
       string: '{"timestamp":"2013-03-08T10:34:49+00:00","stories":[],"iterations":[],"updates":[]}'
     http_version: 
   recorded_at: Fri, 08 Mar 2013 10:34:53 GMT
+- request:
+    method: get
+    uri: https://www.apptrajectory.com/api/76900a72434cfe249da911eea2a6c94a/accounts/fake-user-for-api-test/projects/test/updates.json?since=2013-03-01T01:00:00%2001:00
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Mon, 11 Mar 2013 16:32:37 GMT
+      Etag:
+      - '"db0253c28918dd3118de3ea27c50be77"'
+      Server:
+      - thin 1.3.1 codename Triple Espresso
+      Set-Cookie:
+      - _trajectory_session=BAh7CEkiD3Nlc3Npb25faWQGOgZFRkkiJTJiNDc0ZGRiYzdkMDc2ZmRhYzJhNWVmZWJmOWZlYzY2BjsAVEkiDWttX3F1ZXVlBjsARlsGWwdJIg1pZGVudGlmeQY7AEZJIhVhY2NvdW50LTE1NTAwMzI5BjsARkkiEGttX2lkZW50aXR5BjsARkAM--27c44429de5df9c6be089c8f0377e081a93d9b48;
+        path=/; HttpOnly
+      - remember_token=4771d415418b4cd08b7bf6f671c816788bc98f9d; path=/; expires=Tue,
+        11-Mar-2014 16:32:37 GMT
+      X-Rack-Cache:
+      - miss
+      X-Request-Id:
+      - a05e432b6e769a14ac1350a7d95f7cd5
+      X-Runtime:
+      - '0.367181'
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"timestamp":"2013-03-11T16:32:37+00:00","stories":[{"archived":true,"assignee_id":15506817,"branch":"l-story-1","comments_count":2,"created_at":"2013-02-21T16:49:27+01:00","deleted":false,"design_needed":false,"development_needed":false,"id":15623694,"idea_id":null,"iteration_id":16055704,"points":1,"position":100,"state":"accepted","task_type":"Feature","title":"story
+        1","updated_at":"2013-03-08T14:03:21+01:00","user_id":15506817,"state_events":["unaccept"],"comma_separated_tags":null},{"archived":false,"assignee_id":null,"branch":null,"comments_count":2,"created_at":"2013-02-21T16:49:31+01:00","deleted":false,"design_needed":false,"development_needed":false,"id":15623695,"idea_id":null,"iteration_id":16070349,"points":0,"position":200,"state":"unstarted","task_type":"Feature","title":"story
+        2","updated_at":"2013-03-11T01:06:27+01:00","user_id":15506817,"state_events":["start"],"comma_separated_tags":null}],"iterations":[{"accepted_points":1,"comments_count":0,"complete":true,"created_at":"2013-02-19T17:32:06+01:00","estimated_points":1,"estimated_velocity":20,"id":16055704,"starts_on":"2013-02-18","stories_count":1,"team_strength":100,"updated_at":"2013-03-08T14:03:21+01:00","percent_complete":100,"current?":false,"future?":false,"accepted_stories_count":1},{"accepted_points":0,"comments_count":0,"complete":true,"created_at":"2013-02-25T01:05:09+01:00","estimated_points":0,"estimated_velocity":13,"id":16057164,"starts_on":"2013-02-25","stories_count":0,"team_strength":100,"updated_at":"2013-03-04T01:05:00+01:00","percent_complete":0,"current?":false,"future?":false,"accepted_stories_count":0},{"accepted_points":0,"comments_count":0,"complete":true,"created_at":"2013-03-04T01:05:00+01:00","estimated_points":0,"estimated_velocity":7,"id":16063751,"starts_on":"2013-03-04","stories_count":0,"team_strength":100,"updated_at":"2013-03-11T01:06:27+01:00","percent_complete":0,"current?":false,"future?":false,"accepted_stories_count":0},{"accepted_points":0,"comments_count":0,"complete":false,"created_at":"2013-03-11T01:06:27+01:00","estimated_points":0,"estimated_velocity":0,"id":16070349,"starts_on":"2013-03-11","stories_count":1,"team_strength":100,"updated_at":"2013-03-11T01:06:27+01:00","percent_complete":0,"current?":true,"future?":false,"accepted_stories_count":0}],"updates":[{"id":15818430,"meta":"first
+        comment","type":"Comment","user_id":15506817,"created_at":"2013-03-08T14:03:16+01:00","updated_at":"2013-03-08T14:03:16+01:00","updateable_id":15623694,"updateable_type":"Story","formatted_meta":"<p>first
+        comment</p>\n","editable":true,"":[]},{"id":15818431,"meta":"second comment","type":"Comment","user_id":15506817,"created_at":"2013-03-08T14:03:21+01:00","updated_at":"2013-03-08T14:03:21+01:00","updateable_id":15623694,"updateable_type":"Story","formatted_meta":"<p>second
+        comment</p>\n","editable":true,"":[]},{"id":15818446,"meta":"a comment","type":"Comment","user_id":15506817,"created_at":"2013-03-08T15:46:29+01:00","updated_at":"2013-03-08T15:46:29+01:00","updateable_id":15623695,"updateable_type":"Story","formatted_meta":"<p>a
+        comment</p>\n","editable":true,"":[]},{"id":15818447,"meta":"another comment","type":"Comment","user_id":15506817,"created_at":"2013-03-08T15:46:34+01:00","updated_at":"2013-03-08T15:46:34+01:00","updateable_id":15623695,"updateable_type":"Story","formatted_meta":"<p>another
+        comment</p>\n","editable":true,"":[]}]}'
+    http_version: 
+  recorded_at: Fri, 01 Mar 2013 00:00:00 GMT
 recorded_with: VCR 2.4.0
