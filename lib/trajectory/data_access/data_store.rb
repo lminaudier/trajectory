@@ -3,46 +3,26 @@ module Trajectory
     extend self
 
     def projects
-      @projects ||= Projects.new(*Api.projects.map do |project|
-        Project.new(project.symbolize_keys!)
-      end)
+      @projects ||= Projects.from_json(Api.projects)
     end
 
     def users_for_project(project)
-      Users.new(*Api.users_for_project(project).map do |user|
-        User.new(user.symbolize_keys!)
-      end)
+      Users.from_json Api.users_for_project(project)
     end
 
     def stories_for_project(project)
-      Stories.new(*Api.stories_for_project(project).map do |story|
-        attributes = story.symbolize_keys!.merge({project_id: project.id})
-        Story.new(attributes)
-      end)
+      Stories.from_json project, Api.stories_for_project(project)
     end
 
     def ideas_for_project(project)
-      Ideas.new(*Api.ideas_for_project(project).map do |idea|
-        attributes = idea.symbolize_keys!.merge({project_id: project.id})
-        Idea.new(attributes)
-      end)
+      Ideas.from_json project, Api.ideas_for_project(project)
     end
 
     def updates_for_project(project, since)
-      updates = Api.updates_for_project(project, since)
-      updates.symbolize_keys!
+      updates = Api.updates_for_project(project, since).symbolize_keys!
 
-      stories = Stories.new(*updates[:stories].map do |attributes|
-        attributes = attributes.symbolize_keys!.merge({project_id: project.id})
-        Story.new attributes
-      end)
-
-      iterations = Iterations.new(*updates[:iterations].map do |attributes|
-        attributes = attributes.symbolize_keys!.merge({project_id: project.id})
-        attributes[:current] = attributes[:current?]
-        attributes.delete(:current?)
-        Iteration.new attributes
-      end)
+      stories = Stories.from_json(project, updates[:stories])
+      iterations = Iterations.from_json(project, updates[:iterations])
 
       Update.new(stories, iterations)
     end
@@ -56,12 +36,7 @@ module Trajectory
     end
 
     def iterations_for_project(project)
-      Iterations.new(*Api.iterations_for_project(project).map do |attributes|
-        attributes = attributes.symbolize_keys!.merge({project_id: project.id})
-        attributes[:current] = attributes[:current?]
-        attributes.delete(:current?)
-        Iteration.new(attributes)
-      end)
+      Iterations.from_json project, Api.iterations_for_project(project)
     end
   end
 end

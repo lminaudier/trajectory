@@ -4,11 +4,22 @@ module Trajectory
   class Stories < SimpleDelegator
     alias :stories :__getobj__
 
-    # Creates a new collection of {Stories}
+    # Creates a new collection of {Story}
     #
     # @param stories [Array<Story>] a arbitrary lenght list of {Story} objects
     def initialize(*stories)
       super(stories)
+    end
+
+    # Create a new collection of {Story} from a JSON array of attributes from trajectory API
+    #
+    # @param project [Project] the project the stories belongs to
+    # @param json_attributes [Hash] the hash of attributes of each story of the collection
+    def self.from_json(project, json_attributes)
+      new(*json_attributes.map do |attributes|
+        attributes = attributes.symbolize_keys!.merge({project_id: project.id})
+        Story.new(attributes)
+      end)
     end
 
     # Returns started stories of the collection

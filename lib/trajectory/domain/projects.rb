@@ -11,6 +11,12 @@ module Trajectory
       super(projects)
     end
 
+    def self.from_json(json_attributes)
+      new(*json_attributes.map do |attributes|
+        Project.new(attributes.symbolize_keys!)
+      end)
+    end
+
     # Fetch the project with the given id in the collection. If it is not found,
     # it returns false
     #

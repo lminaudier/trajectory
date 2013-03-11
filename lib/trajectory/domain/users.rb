@@ -9,6 +9,12 @@ module Trajectory
       super(users)
     end
 
+    def self.from_json(json_attributes)
+      new(*json_attributes.map do |attributes|
+        User.new(attributes.symbolize_keys!)
+      end)
+    end
+
     # Returns the the first user with the given id in the collection or false if
     # no user can be found with the id
     #

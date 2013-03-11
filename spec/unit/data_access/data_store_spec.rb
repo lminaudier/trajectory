@@ -101,7 +101,7 @@ module Trajectory
       ideas[1].subject.should == 'other-idea-subject'
     end
 
-    it 'associates iterations and their project with the project id' do
+    it 'associates ideas and their project with the project id' do
       json_ideas_collection = [{'id' => 1234, 'subject' => 'idea-subject'}, {'id' => 42, 'subject' => 'other-idea-subject'}]
 
       Api.stub(:ideas_for_project).and_return(json_ideas_collection)
