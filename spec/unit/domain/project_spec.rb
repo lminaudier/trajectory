@@ -121,6 +121,12 @@ module Trajectory
       project.updates(since: since)
     end
 
+    it 'delegates fetching of ideas of a project to the data store' do
+      DataStore.should_receive(:ideas_for_project).with(project)
+
+      project.ideas
+    end
+
     it 'can get stories of a given iteration' do
       stories = double
       iteration = double

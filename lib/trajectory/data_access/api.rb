@@ -7,33 +7,33 @@ module Trajectory
 
     class << self
       def projects
-        JSON.parse get_json("/projects.json")
+        get_json("/projects.json")
       end
 
       def users_for_project(project)
-        JSON.parse get_json("/projects/#{project.keyword}/users.json")
+        get_json("/projects/#{project.keyword}/users.json")
       end
 
       def stories_for_project(project)
-        JSON.parse(get_json("/projects/#{project.keyword}/stories/completed.json"))['stories'] +
-        JSON.parse(get_json("/projects/#{project.keyword}/stories.json"))['stories']
+        get_json("/projects/#{project.keyword}/stories/completed.json")['stories'] +
+        get_json("/projects/#{project.keyword}/stories.json")['stories']
       end
 
       def iterations_for_project(project)
-        JSON.parse(get_json("/projects/#{project.keyword}/iterations.json"))
+        get_json("/projects/#{project.keyword}/iterations.json")
       end
 
       def ideas_for_project(project)
-        JSON.parse(get_json("/projects/#{project.keyword}/ideas.json"))
+        get_json("/projects/#{project.keyword}/ideas.json")
       end
 
       def updates_for_project(project, since)
-        JSON.parse(get_json("/projects/#{project.keyword}/updates.json?since=#{since.to_s}"))
+        get_json("/projects/#{project.keyword}/updates.json?since=#{since.to_s}")
       end
 
       private
       def get_json(url)
-        get_body(url, options)
+        JSON.parse(get_body(url, options))
       end
 
       def options

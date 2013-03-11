@@ -5,6 +5,10 @@ module Trajectory
     attr_reader :stories, :iterations
 
     # Creates a new update with given updated stories and iterations
+    #
+    # @param stories [Stories] collection of updated stories
+    # @param iterations [Iterations] collection of updated iterations
+    # :nocov:
     def initialize(stories, iterations)
       @stories = stories
       @iterations = iterations

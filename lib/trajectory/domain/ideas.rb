@@ -5,6 +5,7 @@ module Trajectory
     # Creates a new collection of {Idea}
     #
     # @param ideas [Array<Idea>] a arbitrary lenght list of {Idea} objects
+    # :nocov:
     def initialize(*ideas)
       super(ideas)
     end
