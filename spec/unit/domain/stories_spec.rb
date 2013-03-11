@@ -2,6 +2,23 @@ require 'spec_helper'
 
 module Trajectory
   describe Stories do
+    it 'can be initialized from json attributes of its components' do
+      project = double(:project, :id => 4567)
+      json_stories_collection = [{'id' => 1234, 'title' => 'foo'}, {'id' => 42, 'title' => 'bar'}]
+
+      stories = Stories.from_json(project, json_stories_collection)
+
+      stories.should be_kind_of(Stories)
+      stories.first.id.should == 1234
+      stories.first.title.should == 'foo'
+
+      stories[1].id.should == 42
+      stories[1].title.should == 'bar'
+
+      stories.first.project_id.should == 4567
+      stories[1].project_id.should == 4567
+    end
+
     it 'can filter started stories' do
       story_1 = double(:started? => true)
       story_2 = double(:started? => true)

@@ -2,6 +2,19 @@ require 'spec_helper'
 
 module Trajectory
   describe Projects do
+    it 'can be initialized from an array of json attributes of its components' do
+      json_projects_collection = [{'id' => 1234, 'name' => 'foo'}, {'id' => 42, 'name' => 'bar'}]
+
+      projects = Projects.from_json(json_projects_collection)
+
+      projects.should be_kind_of(Projects)
+      projects.first.id.should == 1234
+      projects.first.name.should == 'foo'
+
+      projects[1].id.should == 42
+      projects[1].name.should == 'bar'
+    end
+
     it 'can find a project by id' do
       project = double(:project, id: 1234)
       projects = Projects.new(double(:project, id: 1),

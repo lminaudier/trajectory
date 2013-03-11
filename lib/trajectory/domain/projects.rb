@@ -11,6 +11,9 @@ module Trajectory
       super(projects)
     end
 
+    # Create a new collection of {Project} from a JSON array of attributes from trajectory API
+    #
+    # @param json_attributes [Hash] the hash of attributes of each project of the collection
     def self.from_json(json_attributes)
       new(*json_attributes.map do |attributes|
         Project.new(attributes.symbolize_keys!)

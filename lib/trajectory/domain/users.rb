@@ -9,6 +9,10 @@ module Trajectory
       super(users)
     end
 
+    # Create a new collection of {User} from a JSON array of attributes from trajectory API
+    #
+    # @param project [Project] the project the iterations belongs to
+    # @param json_attributes [Hash] the hash of attributes of each user of the collection
     def self.from_json(json_attributes)
       new(*json_attributes.map do |attributes|
         User.new(attributes.symbolize_keys!)

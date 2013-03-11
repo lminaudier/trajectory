@@ -2,6 +2,23 @@ require 'spec_helper'
 
 module Trajectory
   describe Iterations do
+    it 'can be initializes from a json array of components attributes' do
+      project = double(:project, :id => 4567)
+      json_iterations_collection = [{'id' => 1234, 'estimated_points' => 12}, {'id' => 42, 'estimated_points' => 10}]
+
+      iterations = Iterations.from_json project, json_iterations_collection
+
+      iterations.should be_kind_of(Iterations)
+      iterations.first.id.should == 1234
+      iterations.first.estimated_points.should == 12
+
+      iterations[1].id.should == 42
+      iterations[1].estimated_points.should == 10
+
+      iterations.first.project_id.should == 4567
+      iterations[1].project_id.should == 4567
+    end
+
     it 'can retrieve current iteration' do
       current_iteration = double(:current? => true)
       iterations = Iterations.new(double(:current? => false),

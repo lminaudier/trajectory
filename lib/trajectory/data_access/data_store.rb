@@ -18,7 +18,7 @@ module Trajectory
       Ideas.from_json project, Api.ideas_for_project(project)
     end
 
-    def updates_for_project(project, since)
+    def updates_for_project(project, since = DateTime.now)
       updates = Api.updates_for_project(project, since).symbolize_keys!
 
       stories = Stories.from_json(project, updates[:stories])
