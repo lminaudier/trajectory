@@ -2,6 +2,10 @@ require 'spec_helper'
 
 module Trajectory
   describe DataStore do
+    before(:each) do
+      DataStore.instance_variable_set(:@projects, nil)
+    end
+
     it 'maps JSON projects to actual collection of projects' do
       json_projects_collection = double
       Api.stub(:projects).and_return(json_projects_collection)
