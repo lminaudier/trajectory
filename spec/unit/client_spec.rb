@@ -11,7 +11,7 @@ module Trajectory
 
         expect do
           Client.new
-        end.to raise_error
+        end.to raise_error(BadEvnrionmentError)
       ensure
         ENV['TRAJECTORY_API_KEY'] = original_api_key
         ENV['TRAJECTORY_ACCOUNT_KEYWORD'] = original_account_keyword

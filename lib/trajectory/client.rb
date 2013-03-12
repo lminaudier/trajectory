@@ -5,7 +5,7 @@ module Trajectory
     end
 
     def check_environment!
-      raise "Specify trajectory API environment variables : TRAJECTORY_API_KEY and TRAJECTORY_ACCOUNT_KEYWORD" if ENV['TRAJECTORY_API_KEY'].nil? || ENV['TRAJECTORY_ACCOUNT_KEYWORD'].nil?
+      raise BadEvnrionmentError if ENV['TRAJECTORY_API_KEY'].nil? || ENV['TRAJECTORY_ACCOUNT_KEYWORD'].nil?
     end
 
     def projects
