@@ -2,6 +2,17 @@
 
 This gem is a wrapper to the Thoughbot's Trajectory app ([apptrajectory.com](http://apptrajectory.com)).
 
+This is *work in progress* but you'll have read access to
+- projects
+- stories
+- iterations
+- ideas
+- updates
+
+Comments, Uploads wrappers are missing.
+
+No write wrapper is provided at the moment.
+
 ## Installation
 
 Add this line to your application's Gemfile:
