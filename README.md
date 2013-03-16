@@ -4,7 +4,7 @@
 
 This gem is a wrapper to the Thoughbot's Trajectory app ([apptrajectory.com](http://apptrajectory.com)).
 
-This is *work in progress* but you'll have read access to
+This is **work in progress** but you'll have read access to
 - projects
 - stories
 - iterations
@@ -46,7 +46,7 @@ constructor.
 
 #### API
 
-See `lib/trajectory/domain/` for api details
+See [RDoc](http://rdoc.info/github/lminaudier/trajectory/master/frames) for api details
 
 ## Contributing
 
