@@ -1,20 +1,24 @@
-# Trajectory Ruby Wrapper
+# Trajectory API Ruby Wrapper
 
 [![Build Status](https://travis-ci.org/lminaudier/trajectory.png?branch=master)](https://travis-ci.org/lminaudier/trajectory)
 [![Code Climate](https://codeclimate.com/github/lminaudier/trajectory.png)](https://codeclimate.com/github/lminaudier/trajectory)
+[![Dependency Status](https://gemnasium.com/lminaudier/trajectory.png)](https://gemnasium.com/lminaudier/trajectory)
 
-This gem is a wrapper to the Thoughbot's Trajectory app ([apptrajectory.com](http://apptrajectory.com)).
+This gem is a wrapper to the Thoughbot's Trajectory app API ([apptrajectory.com](http://apptrajectory.com)).
 
-This is **work in progress** but you'll have read access to
-- projects
-- stories
-- iterations
-- ideas
-- updates
+This is **work in progress** but at the moment, you'll have read access to
+- [Project](http://rdoc.info/gems/trajectory/Trajectory/Project)
+- [Story](http://rdoc.info/gems/trajectory/Trajectory/Story)
+- [Iteration](http://rdoc.info/gems/trajectory/Trajectory/Iteration)
+- [Idea](http://rdoc.info/gems/trajectory/Trajectory/Idea)
+- [Update](http://rdoc.info/gems/trajectory/Trajectory/Update)
 
-Comments, Uploads wrappers are missing.
+The wrapper propose some handy methods on collections of [projects](http://rdoc.info/gems/trajectory/Trajectory/Projects), [stories](http://rdoc.info/gems/trajectory/Trajectory/Stories), [iterations](http://rdoc.info/gems/trajectory/Trajectory/Iterations) and [ideas](http://rdoc.info/gems/trajectory/Trajectory/Ideas).
 
-No write wrapper is provided at the moment.
+Comments and Uploads wrappers are not yet implemented.
+Wrapper for write access is not provided at the moment.
+
+If you have questions, you can submit an issue or ping me on twitter [@lminaudier](https://twitter.com/lminaudier).
 
 ## Installation
 
@@ -37,8 +41,7 @@ Or install it yourself as:
 #### Authentication
 
 By default, the wrapper will look for the Trajectory API key in
-`TRAJECTORY_API_KEY` environment variable. You can also pass it directly to the
-constructor.
+`TRAJECTORY_API_KEY` environment variable and for the account keyword in `TRAJECTORY_ACCOUNT_KEYWORD`.
 
 	require 'trajectory'
 
@@ -47,7 +50,7 @@ constructor.
 
 #### API
 
-See [RDoc](http://rdoc.info/github/lminaudier/trajectory/master/frames) for api details
+See [RDoc](http://rdoc.info/gems/trajectory/frames) for api details
 
 ## Contributing
 
