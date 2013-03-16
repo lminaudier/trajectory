@@ -71,8 +71,7 @@ module Trajectory
     #
     # @param since [DateTime] the date
     # @return [Updates] the updates collection
-    # @todo make this compatible with Ruby 1.9 (keyword arguments)
-    def updates(since: DateTime.now)
+    def updates(since = DateTime.now)
       DataStore.updates_for_project(self, since)
     end
 

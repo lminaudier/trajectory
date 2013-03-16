@@ -70,8 +70,8 @@ describe Trajectory::Client, :vcr => vcr_options do
       story_1 = Trajectory::Story.new(id: 15623694)
       story_2 = Trajectory::Story.new(id: 15623695)
 
-      project.updates(since: current_date).iterations.should == Trajectory::Iterations.new(iteration_1, iteration_2, iteration_3)
-      project.updates(since: current_date).stories.should == Trajectory::Stories.new(story_1, story_2)
+      project.updates(current_date).iterations.should == Trajectory::Iterations.new(iteration_1, iteration_2, iteration_3)
+      project.updates(current_date).stories.should == Trajectory::Stories.new(story_1, story_2)
     end
   end
 

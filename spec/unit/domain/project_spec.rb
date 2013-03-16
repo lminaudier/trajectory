@@ -118,7 +118,7 @@ module Trajectory
       since = double
       DataStore.should_receive(:updates_for_project).with(project, since)
 
-      project.updates(since: since)
+      project.updates(since)
     end
 
     it 'delegates fetching of ideas of a project to the data store' do
