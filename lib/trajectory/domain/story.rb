@@ -15,7 +15,7 @@ module Trajectory
     attribute :position, Integer
     # @return [DateTime] the creation date of the story
     attribute :created_at, DateTime
-    # @return [Array<String>] the valid states the story can transition to
+    # @return [Array<Symbol>] the valid states the story can transition to
     attribute :state_events, Array[Symbol]
     # @return [String] the title of the story
     attribute :title, String
