@@ -16,6 +16,6 @@ Gem::Specification.new do |gem|
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ["lib"]
-  gem.add_runtime_dependency 'virtus'
-  gem.add_runtime_dependency 'httparty'
+  gem.add_runtime_dependency 'virtus', '~> 0.5.4'
+  gem.add_runtime_dependency 'httparty', '~> 0.10.2'
 end
