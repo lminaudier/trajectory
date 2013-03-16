@@ -16,8 +16,7 @@ module Trajectory
     # @return [DateTime] the creation date of the story
     attribute :created_at, DateTime
     # @return [Array<String>] the valid states the story can transition to
-    # @todo Replace String by Symbol
-    attribute :state_events, Array[String]
+    attribute :state_events, Array[Symbol]
     # @return [String] the title of the story
     attribute :title, String
     # @return [true, false] true if design is needed for the story, false otherwise
