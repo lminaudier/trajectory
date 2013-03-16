@@ -4,6 +4,7 @@ group :development, :test do
   gem 'awesome_print'
   gem 'rspec'
   gem 'rake'
+  gem 'yard'
 end
 
 group :test do
