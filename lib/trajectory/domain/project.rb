@@ -172,6 +172,19 @@ module Trajectory
       total_points - remaining_points
     end
 
+    # Returns the last non null velocity of the project or raise an error if the
+    # project never started
+    #
+    # @return [Integer] a non null velocity
+    # @raise [VelocityAlwaysEqualToZero] when historic velocity was always zero
+    # (i.e the project has not yet started)
+    def last_non_null_velocity
+      raise VelocityAlwaysEqualToZero if !has_started?
+      historic_velocity.reverse.find do |velocity|
+        velocity != 0
+      end
+    end
+
     # Returns true if the project has already started some development (i.e
     # stories have been accepted and a velocity has been evaluated). It returns
     # false otherwise

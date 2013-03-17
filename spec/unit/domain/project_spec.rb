@@ -117,6 +117,21 @@ module Trajectory
       Project.new.accepted_points.should == 19
     end
 
+    it 'can retrieve the last non null velocity in its history' do
+      Project.new(:historic_velocity => [20, 0, 2, 3, 0, 0, 0]).last_non_null_velocity.should == 3
+      Project.new(:historic_velocity => [0, 0, 20, 0, 2, 3, 0, 0, 0]).last_non_null_velocity.should == 3
+      Project.new(:historic_velocity => [0, 0, 20, 0, 2, 3]).last_non_null_velocity.should == 3
+    end
+
+    it 'raises an error when trying to get last non null velocity of a project that not have yet started' do
+      project = Project.new
+      project.stub(:has_started?).and_return(false)
+
+      expect do
+        project.last_non_null_velocity
+      end.to raise_error(VelocityAlwaysEqualToZero)
+    end
+
     it 'can tell if a project has started based on historic velocity' do
       Project.new(:historic_velocity => [0, 0, 20, 0, 2, 3]).should have_started
       Project.new(:historic_velocity => [0, 0, 0, 0]).should_not have_started
