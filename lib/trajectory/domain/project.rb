@@ -106,6 +106,13 @@ module Trajectory
       Date.today + remaining_days
     end
 
+    # Returns the number of needed iterations to complete the project
+    #
+    # @return [Integer] the number of iterations
+    def remaining_iterations
+      (remaining_points.to_f / estimated_velocity.to_f).ceil
+    end
+
     # Returns the estimated number of days (weekend included) remaining before the end of the project.
     #
     # This is usefull to estimate the project end date.

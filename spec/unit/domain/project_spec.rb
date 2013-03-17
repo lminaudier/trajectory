@@ -36,6 +36,15 @@ module Trajectory
       Project.new.total_points.should == 20
     end
 
+    it 'can evaluate remaining iterations until project completion based on the last non nul velocity' do
+      stories = Stories.new(double(:story, :points => 2, :completed? => false),
+                            double(:story, :points => 10, :completed? => false),
+                            double(:story, :points => 8, :completed? => true))
+      DataStore.stub(:stories_for_project).and_return(stories)
+
+      Project.new(:estimated_velocity => 2).remaining_iterations.should == 6
+    end
+
     it 'can evaluate remaining points' do
       stories = Stories.new(double(:story, :points => 2, :completed? => false),
                             double(:story, :points => 10, :completed? => false),
