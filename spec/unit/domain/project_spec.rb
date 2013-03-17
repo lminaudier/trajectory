@@ -108,6 +108,12 @@ module Trajectory
       Project.new.accepted_points.should == 19
     end
 
+    it 'can tell if a project has started based on historic velocity' do
+      Project.new(:historic_velocity => [0, 0, 20, 0, 2, 3]).should have_started
+      Project.new(:historic_velocity => [0, 0, 0, 0]).should_not have_started
+      Project.new(:historic_velocity => []).should_not have_started
+    end
+
     it 'delegates fetching of iterations of a project to the data store' do
       DataStore.should_receive(:iterations_for_project).with(project)
 

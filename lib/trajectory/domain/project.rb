@@ -164,5 +164,16 @@ module Trajectory
     def accepted_points
       total_points - remaining_points
     end
+
+    # Returns true if the project has already started some development (i.e
+    # stories have been accepted and a velocity has been evaluated). It returns
+    # false otherwise
+    #
+    # @return [true, false]
+    def has_started?
+      historic_velocity.any? do |velocity|
+        velocity != 0
+      end
+    end
   end
 end
