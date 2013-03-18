@@ -33,6 +33,16 @@ module Trajectory
       Story.new.project
     end
 
+    it 'delegates iteration fetching to data store' do
+      project = 1234
+      story = Story.new(:iteration_id => 1234)
+      story.stub(:project).and_return(project)
+
+      DataStore.should_receive(:find_iteration_of_project_by_id).with(project, 1234)
+
+      story.iteration
+    end
+
     it 'knows when it is started' do
       Story.new(state: :started).should be_started
       Story.new(state: :unstarted).should_not be_started

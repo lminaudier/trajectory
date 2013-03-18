@@ -22,6 +22,15 @@ module Trajectory
       end)
     end
 
+    # Fetch the iteration with the given id in the collection. If it is not found,
+    # it returns false
+    #
+    # @param id [Integer] the project id
+    # @return [Iteration, false] the found iteration or false
+    def find_by_id(id)
+      iterations.find { |iteration| iteration.id == id } || false
+    end
+
     # Returns the current iteration of the project or false it no current iteration can be found
     #
     # @return [Iteration, false] the current iteration or false

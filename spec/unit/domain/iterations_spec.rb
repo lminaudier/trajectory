@@ -19,6 +19,24 @@ module Trajectory
       iterations[1].project_id.should == 4567
     end
 
+    it 'can find an iteration by id' do
+      iteration = double(:iteration, id: 1234)
+      iterations = Iterations.new(double(:iteration, id: 1),
+                 double(:iteration, id: 2),
+                 iteration,
+                 double(:iteration, id: 3))
+
+      iterations.find_by_id(1234).should == iteration
+    end
+
+    it "returns false when it can't find a project by id" do
+      iterations = Iterations.new(double(:iteration, id: 1),
+                              double(:iteration, id: 2),
+                              double(:iteration, id: 3))
+
+      iterations.find_by_id(1234).should == false
+    end
+
     it 'can retrieve current iteration' do
       current_iteration = double(:current? => true)
       iterations = Iterations.new(double(:current? => false),

@@ -4,7 +4,8 @@ module Trajectory
 
     NUMBER_OF_WORKING_DAYS_BY_WEEK = 5.0
 
-    attr_writer :stories, :users_collection
+    # @private
+    attr_writer :stories, :users_collection, :iterations_collection
 
     # @return [Integer] the unique identifier of the project.
     # @raise [MissingAttributeError] if id is nil
@@ -50,7 +51,7 @@ module Trajectory
     #
     # @return [Iterations] the iterations collection
     def iterations
-      @iterations ||= DataStore.iterations_for_project(self)
+      @iterations_collection ||= DataStore.iterations_for_project(self)
     end
 
     # Fetch all ideas that belongs to the project
@@ -80,6 +81,13 @@ module Trajectory
     # @return [User, false] the user or false
     def find_user_by_id(id)
       users.find_by_id(id)
+    end
+
+    # Fetch a iteration from the project given its id or false if it does not exist
+    #
+    # @return [Iteration, false] the iteration or false
+    def find_iteration_by_id(id)
+      iterations.find_by_id(id)
     end
 
     # Fetch the stories in a given iteration of a project

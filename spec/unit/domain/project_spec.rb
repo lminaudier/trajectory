@@ -176,6 +176,15 @@ module Trajectory
       project.find_user_by_id(1234)
     end
 
+    it 'can get one of its iteration by id' do
+      iterations = double
+
+      project.iterations_collection = iterations
+      iterations.should_receive(:find_by_id).with(1234)
+
+      project.find_iteration_by_id(1234)
+    end
+
     context 'when estimated velocity is zero' do
       it 'cannot estimate remaining days until the project end' do
         expect do

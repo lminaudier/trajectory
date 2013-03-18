@@ -82,5 +82,12 @@ module Trajectory
 
       DataStore.find_user_of_project_with_id(project, id)
     end
+
+    it 'delegates fetching of user of a project to the project' do
+      id = 12
+      project.should_receive(:find_iteration_by_id).with(id)
+
+      DataStore.find_iteration_of_project_with_id(project, id)
+    end
   end
 end

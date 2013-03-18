@@ -111,8 +111,12 @@ module Trajectory
       iteration_id == iteration.id
     end
 
-    # @todo Not Yet Implemented
+    # Returns the iteration the story belongs to or false if iteration can't be
+    # found
+    #
+    # @return [Iteration, false] the iteration or false
     def iteration
+      @iteration ||= DataStore.find_iteration_of_project_by_id(project, iteration_id)
     end
   end
 end

@@ -66,5 +66,14 @@ module Trajectory
     def iterations_for_project(project)
       Iterations.from_json project, Api.iterations_for_project(project)
     end
+
+    # Fetches a iteration of a given project by id
+    #
+    # @param project [Project] the project
+    # @param iteration_id [Integer] the iteration id
+    # @return [Iteration, false] the found iteration or false
+    def find_iteration_of_project_with_id(project, iteration_id)
+      project.find_iteration_by_id(iteration_id)
+    end
   end
 end
