@@ -3,6 +3,7 @@
 [![Build Status](https://travis-ci.org/lminaudier/trajectory.png?branch=master)](https://travis-ci.org/lminaudier/trajectory)
 [![Code Climate](https://codeclimate.com/github/lminaudier/trajectory.png)](https://codeclimate.com/github/lminaudier/trajectory)
 [![Dependency Status](https://gemnasium.com/lminaudier/trajectory.png)](https://gemnasium.com/lminaudier/trajectory)
+[![Coverage Status](https://coveralls.io/repos/lminaudier/trajectory/badge.png?branch=master)](https://coveralls.io/r/lminaudier/trajectory)
 
 This gem is a wrapper to the Thoughbot's Trajectory app API ([apptrajectory.com](http://apptrajectory.com)).
 
