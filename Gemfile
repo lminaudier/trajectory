@@ -5,6 +5,7 @@ group :development, :test do
   gem 'rspec'
   gem 'rake'
   gem 'yard'
+  gem 'coveralls', require: false
 end
 
 group :test do

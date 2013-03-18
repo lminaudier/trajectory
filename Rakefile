@@ -5,6 +5,13 @@ RSpec::Core::RakeTask.new(:spec) do |t|
   t.rspec_opts = '--format progress'
 end
 
+namespace :spec do
+  RSpec::Core::RakeTask.new(:unit) do |t|
+    t.rspec_opts = '--format progress'
+    t.pattern = "spec/unit/**/*_spec.rb"
+  end
+end
+
 task :default => :spec
 
 desc "List all code todos"
